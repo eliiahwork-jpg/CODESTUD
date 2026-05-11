@@ -1,0 +1,381 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <title>Лента задач — СтудРадар</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400&family=Manrope:wght@400;500;600;700&family=Tektur:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body data-screen-label="03 Лента задач">
+
+<!-- ===== HEADER (logged-in) ===== -->
+<header class="feed-header">
+  <a href="index.html" class="feed-logo">
+    <span class="feed-logo-mark"><img src="assets/logo.svg" alt=""/></span>
+    <span class="feed-logo-text">СтудРадар</span>
+  </a>
+
+  <nav class="feed-nav" aria-label="Меню">
+    <a href="catalog.html" class="feed-chip is-active">
+      <svg class="feed-chip-icon" width="20" height="20" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M15.625 2.5H12.7922C12.441 2.10681 12.0108 1.79223 11.5296 1.57684C11.0484 1.36145 10.5272 1.25011 10 1.25011C9.47282 1.25011 8.95158 1.36145 8.47041 1.57684C7.98924 1.79223 7.55899 2.10681 7.20781 2.5H4.375C4.04348 2.5 3.72554 2.6317 3.49112 2.86612C3.2567 3.10054 3.125 3.41848 3.125 3.75V16.875C3.125 17.2065 3.2567 17.5245 3.49112 17.7589C3.72554 17.9933 4.04348 18.125 4.375 18.125H15.625C15.9565 18.125 16.2745 17.9933 16.5089 17.7589C16.7433 17.5245 16.875 17.2065 16.875 16.875V3.75C16.875 3.41848 16.7433 3.10054 16.5089 2.86612C16.2745 2.6317 15.9565 2.5 15.625 2.5ZM10 2.5C10.663 2.5 11.2989 2.76339 11.7678 3.23223C12.2366 3.70107 12.5 4.33696 12.5 5H7.5C7.5 4.33696 7.76339 3.70107 8.23223 3.23223C8.70107 2.76339 9.33696 2.5 10 2.5ZM12.5 12.5H7.5C7.33424 12.5 7.17527 12.4342 7.05806 12.3169C6.94085 12.1997 6.875 12.0408 6.875 11.875C6.875 11.7092 6.94085 11.5503 7.05806 11.4331C7.17527 11.3159 7.33424 11.25 7.5 11.25H12.5C12.6658 11.25 12.8247 11.3159 12.9419 11.4331C13.0592 11.5503 13.125 11.7092 13.125 11.875C13.125 12.0408 13.0592 12.1997 12.9419 12.3169C12.8247 12.4342 12.6658 12.5 12.5 12.5ZM12.5 10H7.5C7.33424 10 7.17527 9.93415 7.05806 9.81694C6.94085 9.69973 6.875 9.54076 6.875 9.375C6.875 9.20924 6.94085 9.05027 7.05806 8.93306C7.17527 8.81585 7.33424 8.75 7.5 8.75H12.5C12.6658 8.75 12.8247 8.81585 12.9419 8.93306C13.0592 9.05027 13.125 9.20924 13.125 9.375C13.125 9.54076 13.0592 9.69973 12.9419 9.81694C12.8247 9.93415 12.6658 10 12.5 10Z"/></svg>
+      <span>Лента задач</span>
+    </a>
+    <a href="#my" class="feed-chip">
+      <svg class="feed-chip-icon" width="20" height="20" viewBox="0 0 32 32" fill="currentColor" aria-hidden="true"><path d="M1.49987 13.8752L15.4999 21.8752C15.651 21.9616 15.822 22.007 15.9961 22.007C16.1702 22.007 16.3412 21.9616 16.4924 21.8752L30.4924 13.8752C30.6457 13.7878 30.7731 13.6614 30.8618 13.5088C30.9504 13.3562 30.9971 13.1829 30.9971 13.0064C30.9971 12.83 30.9504 12.6566 30.8618 12.5041C30.7731 12.3515 30.6457 12.2251 30.4924 12.1377L16.4924 4.13768C16.3412 4.0513 16.1702 4.00586 15.9961 4.00586C15.822 4.00586 15.651 4.0513 15.4999 4.13768L1.49987 12.1377C1.34656 12.2251 1.21911 12.3515 1.13046 12.5041C1.04181 12.6566 0.995117 12.83 0.995117 13.0064C0.995117 13.1829 1.04181 13.3562 1.13046 13.5088C1.21911 13.6614 1.34656 13.7878 1.49987 13.8752Z"/><path d="M29.5002 17.1312L16.0002 24.8487L2.50019 17.1312C2.38569 17.0656 2.25938 17.0231 2.12847 17.0063C1.99757 16.9894 1.86462 16.9985 1.73723 17.0331C1.60984 17.0676 1.4905 17.1269 1.38602 17.2075C1.28154 17.2882 1.19397 17.3886 1.12831 17.5031C1.06265 17.6176 1.02019 17.7439 1.00334 17.8748C0.986491 18.0057 0.995593 18.1387 1.03013 18.2661C1.06466 18.3935 1.12394 18.5128 1.2046 18.6173C1.28525 18.7218 1.38569 18.8093 1.50019 18.875L15.5002 26.875C15.6513 26.9614 15.8224 27.0068 15.9964 27.0068C16.1705 27.0068 16.3416 26.9614 16.4927 26.875L30.4927 18.875C30.6068 18.8098 30.7069 18.7228 30.7874 18.619C30.8678 18.5151 30.927 18.3964 30.9616 18.2696C30.9962 18.1429 31.0055 18.0106 30.989 17.8802C30.9724 17.7499 30.9304 17.6241 30.8652 17.51C30.8 17.3959 30.713 17.2958 30.6091 17.2153C30.5053 17.1348 30.3866 17.0756 30.2598 17.041C30.1331 17.0065 30.0008 16.9972 29.8704 17.0137C29.7401 17.0303 29.6143 17.0723 29.5002 17.1375V17.1312Z"/></svg>
+      <span>Мои задачи</span>
+      <span class="feed-counter">4</span>
+    </a>
+    <a href="#chats" class="feed-chip">
+      <svg class="feed-chip-icon" width="20" height="20" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M10.3125 1.875C8.24119 1.87727 6.25538 2.70111 4.79074 4.16574C3.32611 5.63038 2.50227 7.61619 2.5 9.6875V16.2758C2.50041 16.6003 2.62953 16.9115 2.85902 17.141C3.08852 17.3705 3.39966 17.4996 3.72422 17.5H10.3125C12.3845 17.5 14.3716 16.6769 15.8368 15.2118C17.3019 13.7466 18.125 11.7595 18.125 9.6875C18.125 7.6155 17.3019 5.62836 15.8368 4.16323C14.3716 2.6981 12.3845 1.875 10.3125 1.875ZM6.875 10.9375C6.68958 10.9375 6.50832 10.8825 6.35415 10.7795C6.19998 10.6765 6.07982 10.5301 6.00886 10.3588C5.93791 10.1875 5.91934 9.99896 5.95551 9.8171C5.99169 9.63525 6.08098 9.4682 6.21209 9.33709C6.3432 9.20598 6.51025 9.11669 6.6921 9.08051C6.87396 9.04434 7.06246 9.06291 7.23377 9.13386C7.40507 9.20482 7.55149 9.32498 7.6545 9.47915C7.75752 9.63332 7.8125 9.81458 7.8125 10C7.8125 10.2486 7.71373 10.4871 7.53791 10.6629C7.3621 10.8387 7.12364 10.9375 6.875 10.9375ZM10.3125 10.9375C10.1271 10.9375 9.94582 10.8825 9.79165 10.7795C9.63748 10.6765 9.51732 10.5301 9.44636 10.3588C9.37541 10.1875 9.35684 9.99896 9.39301 9.8171C9.42919 9.63525 9.51848 9.4682 9.64959 9.33709C9.7807 9.20598 9.94775 9.11669 10.1296 9.08051C10.3115 9.04434 10.5 9.06291 10.6713 9.13386C10.8426 9.20482 10.989 9.32498 11.092 9.47915C11.195 9.63332 11.25 9.81458 11.25 10C11.25 10.2486 11.1512 10.4871 10.9754 10.6629C10.7996 10.8387 10.5611 10.9375 10.3125 10.9375ZM13.75 10.9375C13.5646 10.9375 13.3833 10.8825 13.2292 10.7795C13.075 10.6765 12.9548 10.5301 12.8839 10.3588C12.8129 10.1875 12.7943 9.99896 12.8305 9.8171C12.8667 9.63525 12.956 9.4682 13.0871 9.33709C13.2182 9.20598 13.3852 9.11669 13.5671 9.08051C13.749 9.04434 13.9375 9.06291 14.1088 9.13386C14.2801 9.20482 14.4265 9.32498 14.5295 9.47915C14.6325 9.63332 14.6875 9.81458 14.6875 10C14.6875 10.2486 14.5887 10.4871 14.4129 10.6629C14.2371 10.8387 13.9986 10.9375 13.75 10.9375Z"/></svg>
+      <span>Чаты</span>
+      <span class="feed-counter">3</span>
+    </a>
+    <a href="#wallet" class="feed-chip">
+      <svg class="feed-chip-icon" width="20" height="20" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M16.875 5.625H4.375C4.20924 5.625 4.05027 5.55915 3.93306 5.44194C3.81585 5.32473 3.75 5.16576 3.75 5C3.75 4.83424 3.81585 4.67527 3.93306 4.55806C4.05027 4.44085 4.20924 4.375 4.375 4.375H15C15.1658 4.375 15.3247 4.30915 15.4419 4.19194C15.5592 4.07473 15.625 3.91576 15.625 3.75C15.625 3.58424 15.5592 3.42527 15.4419 3.30806C15.3247 3.19085 15.1658 3.125 15 3.125H4.375C3.87772 3.125 3.40081 3.32254 3.04917 3.67417C2.69754 4.02581 2.5 4.50272 2.5 5V15C2.5 15.4973 2.69754 15.9742 3.04917 16.3258C3.40081 16.6775 3.87772 16.875 4.375 16.875H16.875C17.2065 16.875 17.5245 16.7433 17.7589 16.5089C17.9933 16.2745 18.125 15.9565 18.125 15.625V6.875C18.125 6.54348 17.9933 6.22554 17.7589 5.99112C17.5245 5.7567 17.2065 5.625 16.875 5.625ZM14.0625 11.875C13.8771 11.875 13.6958 11.82 13.5417 11.717C13.3875 11.614 13.2673 11.4676 13.1964 11.2963C13.1254 11.125 13.1068 10.9365 13.143 10.7546C13.1792 10.5727 13.2685 10.4057 13.3996 10.2746C13.5307 10.1435 13.6977 10.0542 13.8796 10.018C14.0615 9.98184 14.25 10.0004 14.4213 10.0714C14.5926 10.1423 14.739 10.2625 14.842 10.4167C14.945 10.5708 15 10.7521 15 10.9375C15 11.1861 14.9012 11.4246 14.7254 11.6004C14.5496 11.7762 14.3111 11.875 14.0625 11.875Z"/></svg>
+      <span>500&nbsp;₽</span>
+    </a>
+  </nav>
+
+  <div class="feed-user-wrap">
+    <button type="button" class="feed-user" aria-haspopup="menu" aria-expanded="false" id="userBtn">
+      <span class="feed-user-avatar"></span>
+      <span class="feed-user-name">Владислав&nbsp;Г.</span>
+      <svg class="feed-user-caret" width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M5 8l5 5 5-5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+    <div class="feed-user-menu" role="menu" id="userMenu" hidden>
+      <a href="profile.html" role="menuitem">Профиль</a>
+      <a href="#documents" role="menuitem">Документы</a>
+      <a href="#settings" role="menuitem">Настройки</a>
+      <button type="button" class="feed-user-menu-logout" data-logout>Выйти</button>
+    </div>
+  </div>
+</header>
+
+<!-- ===== MAIN ===== -->
+<main class="feed-page">
+
+  <!-- Search -->
+  <div class="feed-search">
+    <input class="feed-search-input" type="search" placeholder="Какую задачу ищете?" aria-label="Поиск"/>
+    <button class="feed-search-btn" type="button" aria-label="Найти">
+      <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true"><circle cx="9.5" cy="9.5" r="6.5" stroke="currentColor" stroke-width="1.6"/><path d="M14.5 14.5l4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+    </button>
+  </div>
+
+  <!-- Filters + sort -->
+  <div class="feed-filters-wrap">
+    <div class="feed-pills" role="tablist">
+      <button type="button" class="feed-pill is-active">Все</button>
+      <button type="button" class="feed-pill">Ивенты</button>
+      <button type="button" class="feed-pill">Дизайн</button>
+      <button type="button" class="feed-pill">IT-разработка</button>
+      <button type="button" class="feed-pill">Контент</button>
+      <button type="button" class="feed-pill">SMM</button>
+      <button type="button" class="feed-pill">Видео</button>
+    </div>
+    <div class="feed-sorts">
+      <button type="button" class="feed-sort">
+        <span>Сначала новые</span>
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <button type="button" class="feed-sort">
+        <span>Формат: любой</span>
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Count -->
+  <div class="feed-count">Найдено <b>16</b> студентов</div>
+
+  <!-- Cards grid -->
+  <div class="feed-grid">
+    <!-- 6 cards - identical content as in the design mockup -->
+    <article class="task-card">
+      <header class="task-card-head">
+        <div class="task-card-badges">
+          <span class="task-badge task-badge--urgent"><svg width="14" height="14" viewBox="0 0 14 14" fill="currentColor" aria-hidden="true"><path d="M8 0L1.5 8h4l-1 6L11 6H7l1-6Z"/></svg>Срочно</span>
+          <span class="task-tag task-tag--cat">Ивенты</span>
+        </div>
+        <div class="task-card-icons">
+          <button type="button" class="task-icon-btn" aria-label="В избранное"><svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M14.5 3.25c-1.7 0-3.18.73-4.13 1.97-.93-1.24-2.42-1.97-4.12-1.97A5.13 5.13 0 0 0 1.25 8.38c0 5.75 7.45 9.87 8.35 10.36a.75.75 0 0 0 .73 0c.9-.49 8.42-4.61 8.42-10.36a5.13 5.13 0 0 0-5.13-5.13Z"/></svg></button>
+        </div>
+      </header>
+      <h3 class="task-card-title">Сопровождение гостей форума «Югра-Экспо»</h3>
+      <ul class="task-card-meta">
+        <li><svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><circle cx="6.5" cy="7" r="2.5"/><circle cx="13.5" cy="7" r="2"/><path d="M2 16.5c0-2 2-3.5 4.5-3.5s4.5 1.5 4.5 3.5v.5H2v-.5Z"/><path d="M11.5 17c0-1.6 1.3-2.7 3-2.7s3 1.1 3 2.7H11.5Z"/></svg>10 человек</li>
+        <li><svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M10 1.5A6.5 6.5 0 0 0 3.5 8c0 4.875 6.5 10 6.5 10s6.5-5.125 6.5-10A6.5 6.5 0 0 0 10 1.5Zm0 8.5a2 2 0 1 1 0-4 2 2 0 0 1 0 4Z"/></svg>Студенческая улица, 19</li>
+        <li><svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M16 3.5h-1.5V2.5a.75.75 0 1 0-1.5 0v1H6.5V2.5a.75.75 0 1 0-1.5 0v1H4A1.5 1.5 0 0 0 2.5 5v11A1.5 1.5 0 0 0 4 17.5h12a1.5 1.5 0 0 0 1.5-1.5V5A1.5 1.5 0 0 0 16 3.5Zm0 12.5H4V8h12v8Z"/></svg>12–13 июня 2026 (10:00–18:00)</li>
+      </ul>
+      <div class="task-card-price">
+        <span class="task-card-price-num">4&nbsp;500&nbsp;₽</span>
+        <span class="task-card-price-label">За задание / чел</span>
+      </div>
+      <footer class="task-card-foot">
+        <div class="task-card-venue">
+          <span class="task-card-venue-img"></span>
+          <div class="task-card-venue-meta">
+            <span class="task-card-venue-name">КВЦ «Югра-Экспо»</span>
+            <span class="task-card-venue-rating"><svg width="14" height="14" viewBox="0 0 14 14" fill="#1153B5" aria-hidden="true"><path d="M7 1l1.85 3.75L13 5.4l-3 2.92.7 4.13L7 10.5l-3.7 1.95L4 8.32 1 5.4l4.15-.65L7 1Z"/></svg>4.9</span>
+          </div>
+        </div>
+        <div class="task-card-stats">
+          <span class="task-card-responses"><span class="task-card-responses-num">8</span> откликов</span>
+          <span class="task-card-time">2 часа назад</span>
+        </div>
+      </footer>
+    </article>
+
+    <article class="task-card">
+      <header class="task-card-head">
+        <div class="task-card-badges">
+          <span class="task-badge task-badge--urgent"><svg width="14" height="14" viewBox="0 0 14 14" fill="currentColor" aria-hidden="true"><path d="M8 0L1.5 8h4l-1 6L11 6H7l1-6Z"/></svg>Срочно</span>
+          <span class="task-tag task-tag--cat">Ивенты</span>
+        </div>
+        <div class="task-card-icons">
+          <button type="button" class="task-icon-btn" aria-label="В избранное"><svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M14.5 3.25c-1.7 0-3.18.73-4.13 1.97-.93-1.24-2.42-1.97-4.12-1.97A5.13 5.13 0 0 0 1.25 8.38c0 5.75 7.45 9.87 8.35 10.36a.75.75 0 0 0 .73 0c.9-.49 8.42-4.61 8.42-10.36a5.13 5.13 0 0 0-5.13-5.13Z"/></svg></button>
+        </div>
+      </header>
+      <h3 class="task-card-title">Сопровождение гостей форума «Югра-Экспо»</h3>
+      <ul class="task-card-meta">
+        <li><svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><circle cx="6.5" cy="7" r="2.5"/><circle cx="13.5" cy="7" r="2"/><path d="M2 16.5c0-2 2-3.5 4.5-3.5s4.5 1.5 4.5 3.5v.5H2v-.5Z"/><path d="M11.5 17c0-1.6 1.3-2.7 3-2.7s3 1.1 3 2.7H11.5Z"/></svg>10 человек</li>
+        <li><svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M10 1.5A6.5 6.5 0 0 0 3.5 8c0 4.875 6.5 10 6.5 10s6.5-5.125 6.5-10A6.5 6.5 0 0 0 10 1.5Zm0 8.5a2 2 0 1 1 0-4 2 2 0 0 1 0 4Z"/></svg>Студенческая улица, 19</li>
+        <li><svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M16 3.5h-1.5V2.5a.75.75 0 1 0-1.5 0v1H6.5V2.5a.75.75 0 1 0-1.5 0v1H4A1.5 1.5 0 0 0 2.5 5v11A1.5 1.5 0 0 0 4 17.5h12a1.5 1.5 0 0 0 1.5-1.5V5A1.5 1.5 0 0 0 16 3.5Zm0 12.5H4V8h12v8Z"/></svg>12–13 июня 2026 (10:00–18:00)</li>
+      </ul>
+      <div class="task-card-price">
+        <span class="task-card-price-num">4&nbsp;500&nbsp;₽</span>
+        <span class="task-card-price-label">За задание / чел</span>
+      </div>
+      <footer class="task-card-foot">
+        <div class="task-card-venue">
+          <span class="task-card-venue-img"></span>
+          <div class="task-card-venue-meta">
+            <span class="task-card-venue-name">КВЦ «Югра-Экспо»</span>
+            <span class="task-card-venue-rating"><svg width="14" height="14" viewBox="0 0 14 14" fill="#1153B5" aria-hidden="true"><path d="M7 1l1.85 3.75L13 5.4l-3 2.92.7 4.13L7 10.5l-3.7 1.95L4 8.32 1 5.4l4.15-.65L7 1Z"/></svg>4.9</span>
+          </div>
+        </div>
+        <div class="task-card-stats">
+          <span class="task-card-responses"><span class="task-card-responses-num">8</span> откликов</span>
+          <span class="task-card-time">2 часа назад</span>
+        </div>
+      </footer>
+    </article>
+
+    <article class="task-card">
+      <header class="task-card-head">
+        <div class="task-card-badges">
+          <span class="task-badge task-badge--urgent"><svg width="14" height="14" viewBox="0 0 14 14" fill="currentColor" aria-hidden="true"><path d="M8 0L1.5 8h4l-1 6L11 6H7l1-6Z"/></svg>Срочно</span>
+          <span class="task-tag task-tag--cat">Ивенты</span>
+        </div>
+        <div class="task-card-icons">
+          <button type="button" class="task-icon-btn" aria-label="В избранное"><svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M14.5 3.25c-1.7 0-3.18.73-4.13 1.97-.93-1.24-2.42-1.97-4.12-1.97A5.13 5.13 0 0 0 1.25 8.38c0 5.75 7.45 9.87 8.35 10.36a.75.75 0 0 0 .73 0c.9-.49 8.42-4.61 8.42-10.36a5.13 5.13 0 0 0-5.13-5.13Z"/></svg></button>
+        </div>
+      </header>
+      <h3 class="task-card-title">Сопровождение гостей форума «Югра-Экспо»</h3>
+      <ul class="task-card-meta">
+        <li><svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><circle cx="6.5" cy="7" r="2.5"/><circle cx="13.5" cy="7" r="2"/><path d="M2 16.5c0-2 2-3.5 4.5-3.5s4.5 1.5 4.5 3.5v.5H2v-.5Z"/><path d="M11.5 17c0-1.6 1.3-2.7 3-2.7s3 1.1 3 2.7H11.5Z"/></svg>10 человек</li>
+        <li><svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M10 1.5A6.5 6.5 0 0 0 3.5 8c0 4.875 6.5 10 6.5 10s6.5-5.125 6.5-10A6.5 6.5 0 0 0 10 1.5Zm0 8.5a2 2 0 1 1 0-4 2 2 0 0 1 0 4Z"/></svg>Студенческая улица, 19</li>
+        <li><svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M16 3.5h-1.5V2.5a.75.75 0 1 0-1.5 0v1H6.5V2.5a.75.75 0 1 0-1.5 0v1H4A1.5 1.5 0 0 0 2.5 5v11A1.5 1.5 0 0 0 4 17.5h12a1.5 1.5 0 0 0 1.5-1.5V5A1.5 1.5 0 0 0 16 3.5Zm0 12.5H4V8h12v8Z"/></svg>12–13 июня 2026 (10:00–18:00)</li>
+      </ul>
+      <div class="task-card-price">
+        <span class="task-card-price-num">4&nbsp;500&nbsp;₽</span>
+        <span class="task-card-price-label">За задание / чел</span>
+      </div>
+      <footer class="task-card-foot">
+        <div class="task-card-venue">
+          <span class="task-card-venue-img"></span>
+          <div class="task-card-venue-meta">
+            <span class="task-card-venue-name">КВЦ «Югра-Экспо»</span>
+            <span class="task-card-venue-rating"><svg width="14" height="14" viewBox="0 0 14 14" fill="#1153B5" aria-hidden="true"><path d="M7 1l1.85 3.75L13 5.4l-3 2.92.7 4.13L7 10.5l-3.7 1.95L4 8.32 1 5.4l4.15-.65L7 1Z"/></svg>4.9</span>
+          </div>
+        </div>
+        <div class="task-card-stats">
+          <span class="task-card-responses"><span class="task-card-responses-num">8</span> откликов</span>
+          <span class="task-card-time">2 часа назад</span>
+        </div>
+      </footer>
+    </article>
+
+    <article class="task-card">
+      <header class="task-card-head">
+        <div class="task-card-badges">
+          <span class="task-badge task-badge--urgent"><svg width="14" height="14" viewBox="0 0 14 14" fill="currentColor" aria-hidden="true"><path d="M8 0L1.5 8h4l-1 6L11 6H7l1-6Z"/></svg>Срочно</span>
+          <span class="task-tag task-tag--cat">Ивенты</span>
+        </div>
+        <div class="task-card-icons">
+          <button type="button" class="task-icon-btn" aria-label="В избранное"><svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M14.5 3.25c-1.7 0-3.18.73-4.13 1.97-.93-1.24-2.42-1.97-4.12-1.97A5.13 5.13 0 0 0 1.25 8.38c0 5.75 7.45 9.87 8.35 10.36a.75.75 0 0 0 .73 0c.9-.49 8.42-4.61 8.42-10.36a5.13 5.13 0 0 0-5.13-5.13Z"/></svg></button>
+        </div>
+      </header>
+      <h3 class="task-card-title">Сопровождение гостей форума «Югра-Экспо»</h3>
+      <ul class="task-card-meta">
+        <li><svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><circle cx="6.5" cy="7" r="2.5"/><circle cx="13.5" cy="7" r="2"/><path d="M2 16.5c0-2 2-3.5 4.5-3.5s4.5 1.5 4.5 3.5v.5H2v-.5Z"/><path d="M11.5 17c0-1.6 1.3-2.7 3-2.7s3 1.1 3 2.7H11.5Z"/></svg>10 человек</li>
+        <li><svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M10 1.5A6.5 6.5 0 0 0 3.5 8c0 4.875 6.5 10 6.5 10s6.5-5.125 6.5-10A6.5 6.5 0 0 0 10 1.5Zm0 8.5a2 2 0 1 1 0-4 2 2 0 0 1 0 4Z"/></svg>Студенческая улица, 19</li>
+        <li><svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M16 3.5h-1.5V2.5a.75.75 0 1 0-1.5 0v1H6.5V2.5a.75.75 0 1 0-1.5 0v1H4A1.5 1.5 0 0 0 2.5 5v11A1.5 1.5 0 0 0 4 17.5h12a1.5 1.5 0 0 0 1.5-1.5V5A1.5 1.5 0 0 0 16 3.5Zm0 12.5H4V8h12v8Z"/></svg>12–13 июня 2026 (10:00–18:00)</li>
+      </ul>
+      <div class="task-card-price">
+        <span class="task-card-price-num">4&nbsp;500&nbsp;₽</span>
+        <span class="task-card-price-label">За задание / чел</span>
+      </div>
+      <footer class="task-card-foot">
+        <div class="task-card-venue">
+          <span class="task-card-venue-img"></span>
+          <div class="task-card-venue-meta">
+            <span class="task-card-venue-name">КВЦ «Югра-Экспо»</span>
+            <span class="task-card-venue-rating"><svg width="14" height="14" viewBox="0 0 14 14" fill="#1153B5" aria-hidden="true"><path d="M7 1l1.85 3.75L13 5.4l-3 2.92.7 4.13L7 10.5l-3.7 1.95L4 8.32 1 5.4l4.15-.65L7 1Z"/></svg>4.9</span>
+          </div>
+        </div>
+        <div class="task-card-stats">
+          <span class="task-card-responses"><span class="task-card-responses-num">8</span> откликов</span>
+          <span class="task-card-time">2 часа назад</span>
+        </div>
+      </footer>
+    </article>
+
+    <article class="task-card">
+      <header class="task-card-head">
+        <div class="task-card-badges">
+          <span class="task-badge task-badge--urgent"><svg width="14" height="14" viewBox="0 0 14 14" fill="currentColor" aria-hidden="true"><path d="M8 0L1.5 8h4l-1 6L11 6H7l1-6Z"/></svg>Срочно</span>
+          <span class="task-tag task-tag--cat">Ивенты</span>
+        </div>
+        <div class="task-card-icons">
+          <button type="button" class="task-icon-btn" aria-label="В избранное"><svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M14.5 3.25c-1.7 0-3.18.73-4.13 1.97-.93-1.24-2.42-1.97-4.12-1.97A5.13 5.13 0 0 0 1.25 8.38c0 5.75 7.45 9.87 8.35 10.36a.75.75 0 0 0 .73 0c.9-.49 8.42-4.61 8.42-10.36a5.13 5.13 0 0 0-5.13-5.13Z"/></svg></button>
+        </div>
+      </header>
+      <h3 class="task-card-title">Сопровождение гостей форума «Югра-Экспо»</h3>
+      <ul class="task-card-meta">
+        <li><svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><circle cx="6.5" cy="7" r="2.5"/><circle cx="13.5" cy="7" r="2"/><path d="M2 16.5c0-2 2-3.5 4.5-3.5s4.5 1.5 4.5 3.5v.5H2v-.5Z"/><path d="M11.5 17c0-1.6 1.3-2.7 3-2.7s3 1.1 3 2.7H11.5Z"/></svg>10 человек</li>
+        <li><svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M10 1.5A6.5 6.5 0 0 0 3.5 8c0 4.875 6.5 10 6.5 10s6.5-5.125 6.5-10A6.5 6.5 0 0 0 10 1.5Zm0 8.5a2 2 0 1 1 0-4 2 2 0 0 1 0 4Z"/></svg>Студенческая улица, 19</li>
+        <li><svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M16 3.5h-1.5V2.5a.75.75 0 1 0-1.5 0v1H6.5V2.5a.75.75 0 1 0-1.5 0v1H4A1.5 1.5 0 0 0 2.5 5v11A1.5 1.5 0 0 0 4 17.5h12a1.5 1.5 0 0 0 1.5-1.5V5A1.5 1.5 0 0 0 16 3.5Zm0 12.5H4V8h12v8Z"/></svg>12–13 июня 2026 (10:00–18:00)</li>
+      </ul>
+      <div class="task-card-price">
+        <span class="task-card-price-num">4&nbsp;500&nbsp;₽</span>
+        <span class="task-card-price-label">За задание / чел</span>
+      </div>
+      <footer class="task-card-foot">
+        <div class="task-card-venue">
+          <span class="task-card-venue-img"></span>
+          <div class="task-card-venue-meta">
+            <span class="task-card-venue-name">КВЦ «Югра-Экспо»</span>
+            <span class="task-card-venue-rating"><svg width="14" height="14" viewBox="0 0 14 14" fill="#1153B5" aria-hidden="true"><path d="M7 1l1.85 3.75L13 5.4l-3 2.92.7 4.13L7 10.5l-3.7 1.95L4 8.32 1 5.4l4.15-.65L7 1Z"/></svg>4.9</span>
+          </div>
+        </div>
+        <div class="task-card-stats">
+          <span class="task-card-responses"><span class="task-card-responses-num">8</span> откликов</span>
+          <span class="task-card-time">2 часа назад</span>
+        </div>
+      </footer>
+    </article>
+
+    <article class="task-card">
+      <header class="task-card-head">
+        <div class="task-card-badges">
+          <span class="task-badge task-badge--urgent"><svg width="14" height="14" viewBox="0 0 14 14" fill="currentColor" aria-hidden="true"><path d="M8 0L1.5 8h4l-1 6L11 6H7l1-6Z"/></svg>Срочно</span>
+          <span class="task-tag task-tag--cat">Ивенты</span>
+        </div>
+        <div class="task-card-icons">
+          <button type="button" class="task-icon-btn" aria-label="В избранное"><svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M14.5 3.25c-1.7 0-3.18.73-4.13 1.97-.93-1.24-2.42-1.97-4.12-1.97A5.13 5.13 0 0 0 1.25 8.38c0 5.75 7.45 9.87 8.35 10.36a.75.75 0 0 0 .73 0c.9-.49 8.42-4.61 8.42-10.36a5.13 5.13 0 0 0-5.13-5.13Z"/></svg></button>
+        </div>
+      </header>
+      <h3 class="task-card-title">Сопровождение гостей форума «Югра-Экспо»</h3>
+      <ul class="task-card-meta">
+        <li><svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><circle cx="6.5" cy="7" r="2.5"/><circle cx="13.5" cy="7" r="2"/><path d="M2 16.5c0-2 2-3.5 4.5-3.5s4.5 1.5 4.5 3.5v.5H2v-.5Z"/><path d="M11.5 17c0-1.6 1.3-2.7 3-2.7s3 1.1 3 2.7H11.5Z"/></svg>10 человек</li>
+        <li><svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M10 1.5A6.5 6.5 0 0 0 3.5 8c0 4.875 6.5 10 6.5 10s6.5-5.125 6.5-10A6.5 6.5 0 0 0 10 1.5Zm0 8.5a2 2 0 1 1 0-4 2 2 0 0 1 0 4Z"/></svg>Студенческая улица, 19</li>
+        <li><svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M16 3.5h-1.5V2.5a.75.75 0 1 0-1.5 0v1H6.5V2.5a.75.75 0 1 0-1.5 0v1H4A1.5 1.5 0 0 0 2.5 5v11A1.5 1.5 0 0 0 4 17.5h12a1.5 1.5 0 0 0 1.5-1.5V5A1.5 1.5 0 0 0 16 3.5Zm0 12.5H4V8h12v8Z"/></svg>12–13 июня 2026 (10:00–18:00)</li>
+      </ul>
+      <div class="task-card-price">
+        <span class="task-card-price-num">4&nbsp;500&nbsp;₽</span>
+        <span class="task-card-price-label">За задание / чел</span>
+      </div>
+      <footer class="task-card-foot">
+        <div class="task-card-venue">
+          <span class="task-card-venue-img"></span>
+          <div class="task-card-venue-meta">
+            <span class="task-card-venue-name">КВЦ «Югра-Экспо»</span>
+            <span class="task-card-venue-rating"><svg width="14" height="14" viewBox="0 0 14 14" fill="#1153B5" aria-hidden="true"><path d="M7 1l1.85 3.75L13 5.4l-3 2.92.7 4.13L7 10.5l-3.7 1.95L4 8.32 1 5.4l4.15-.65L7 1Z"/></svg>4.9</span>
+          </div>
+        </div>
+        <div class="task-card-stats">
+          <span class="task-card-responses"><span class="task-card-responses-num">8</span> откликов</span>
+          <span class="task-card-time">2 часа назад</span>
+        </div>
+      </footer>
+    </article>
+  </div>
+
+  <a href="#more" class="feed-more">
+    Показать еще 4
+    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M5 8l5 5 5-5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </a>
+</main>
+
+<script>
+// Sync header pill (name + avatar) with profile data saved in localStorage
+(function(){
+  try {
+    var raw = localStorage.getItem('studradar_profile_v1');
+    if (!raw) return;
+    var state = JSON.parse(raw);
+    if (!state || !state.profile) return;
+    if (state.profile.name) {
+      var nm = document.querySelector('.feed-user-name');
+      if (nm) {
+        var parts = state.profile.name.trim().split(/\s+/);
+        nm.textContent = parts.length >= 2
+          ? parts[0] + ' ' + ''
+          : parts[0];
+      }
+    }
+    if (state.profile.photo) {
+      var av = document.querySelector('.feed-user-avatar');
+      if (av) av.style.backgroundImage = 'url("' + state.profile.photo + '")';
+    }
+  } catch (e) {}
+})();
+(function(){
+  // User pill dropdown
+  var userBtn = document.getElementById('userBtn');
+  var userMenu = document.getElementById('userMenu');
+  if (userBtn && userMenu) {
+    userBtn.addEventListener('click', function(e){
+      e.stopPropagation();
+      var open = !userMenu.hidden;
+      userMenu.hidden = open;
+      userBtn.setAttribute('aria-expanded', String(!open));
+    });
+    document.addEventListener('click', function(e){
+      if (!userMenu.contains(e.target) && !userBtn.contains(e.target)) {
+        userMenu.hidden = true;
+        userBtn.setAttribute('aria-expanded', 'false');
+      }
+    });
+  }
+  document.querySelectorAll('[data-logout]').forEach(function(b){
+    b.addEventListener('click', function(){
+      try { localStorage.removeItem('studradar_session'); } catch(e) {}
+      window.location.href = 'index.html';
+    });
+  });
+
+  document.querySelectorAll('.feed-pill').forEach(function(pill){
+    pill.addEventListener('click', function(){
+      document.querySelectorAll('.feed-pill').forEach(function(p){ p.classList.remove('is-active'); });
+      pill.classList.add('is-active');
+    });
+  });
+  document.querySelectorAll('.task-icon-btn[aria-label="В избранное"]').forEach(function(btn){
+    btn.addEventListener('click', function(e){
+      e.stopPropagation();
+      btn.classList.toggle('is-active');
+    });
+  });
+  document.querySelectorAll('.task-card').forEach(function(card){
+    card.style.cursor = 'pointer';
+    card.addEventListener('click', function(){ window.location.href = 'task.html'; });
+  });
+})();
+</script>
+</body>
+</html>

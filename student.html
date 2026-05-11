@@ -1,0 +1,954 @@
+﻿<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <title>Профиль студента — СтудРадар</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Tektur:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="orange-theme profile-body" data-screen-label="06 Профиль студента">
+
+<!-- ===== HEADER (Employer-logged) ===== -->
+<header class="feed-header">
+  <a href="index.html" class="feed-logo">
+    <span class="feed-logo-mark"><img src="assets/logo.svg" alt=""/></span>
+    <span class="feed-logo-text">СтудРадар</span>
+  </a>
+
+  <nav class="feed-nav" aria-label="Меню">
+    <a href="#tasks" class="feed-chip">
+      <svg class="feed-chip-icon" width="20" height="20" viewBox="0 0 256 256" fill="currentColor" fill-rule="evenodd" aria-hidden="true"><path d="M132,24A100.11,100.11,0,0,0,32,124v84.33A15.69,15.69,0,0,0,47.67,224H132a100,100,0,0,0,0-200Zm32,128H100a8,8,0,0,1,0-16h64a8,8,0,0,1,0,16Zm0-32H100a8,8,0,0,1,0-16h64a8,8,0,0,1,0,16Z"/></svg>
+      <span>Мои задачи</span>
+    </a>
+    <a href="students.html" class="feed-chip is-active">
+      <svg class="feed-chip-icon" width="20" height="20" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M164.38,181.1a52,52,0,1,0-72.76,0,75.78,75.78,0,0,0-37.5,32.36,8,8,0,0,0,13.84,8.06A60,60,0,0,1,128,192h0a60,60,0,0,1,60.04,29.52,8,8,0,0,0,13.84-8.06A75.78,75.78,0,0,0,164.38,181.1ZM246.4,219.13a8,8,0,0,1-11,2.79,69.2,69.2,0,0,0-13.71-6.07,8,8,0,1,1,5.18-15.13,84.85,84.85,0,0,1,16.81,7.42A8,8,0,0,1,246.4,219.13ZM215.45,121.45a36,36,0,0,1-23.18,8.55,8,8,0,0,1,0-16,20,20,0,1,0-19.73-23.4,8,8,0,0,1-15.76-2.78A36.05,36.05,0,1,1,215.45,121.45ZM41.36,210.92a8,8,0,1,1-13.4-8.7,84.85,84.85,0,0,1,16.81-7.42,8,8,0,0,1,5.18,15.13,69.2,69.2,0,0,0-13.71,6.07,8,8,0,0,1-7.49-1.36ZM83.73,90.55a8,8,0,0,1-15.77,2.78A20,20,0,1,0,48.23,114h0a8,8,0,1,1,0,16A36,36,0,1,1,83.73,90.55Z"/></svg>
+      <span>Студенты</span>
+    </a>
+    <a href="#chats" class="feed-chip">
+      <svg class="feed-chip-icon" width="20" height="20" viewBox="0 0 256 256" fill="currentColor" fill-rule="evenodd" aria-hidden="true"><path d="M132,24A100.11,100.11,0,0,0,32,124v84.33A15.69,15.69,0,0,0,47.67,224H132a100,100,0,0,0,0-200Zm32,128H100a8,8,0,0,1,0-16h64a8,8,0,0,1,0,16Zm0-32H100a8,8,0,0,1,0-16h64a8,8,0,0,1,0,16Z"/></svg>
+      <span>Чаты</span>
+      <span class="feed-counter">3</span>
+    </a>
+    <a href="#wallet" class="feed-chip">
+      <svg class="feed-chip-icon" width="20" height="20" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M16.875 5.625H4.375C4.20924 5.625 4.05027 5.55915 3.93306 5.44194C3.81585 5.32473 3.75 5.16576 3.75 5C3.75 4.83424 3.81585 4.67527 3.93306 4.55806C4.05027 4.44085 4.20924 4.375 4.375 4.375H15C15.1658 4.375 15.3247 4.30915 15.4419 4.19194C15.5592 4.07473 15.625 3.91576 15.625 3.75C15.625 3.58424 15.5592 3.42527 15.4419 3.30806C15.3247 3.19085 15.1658 3.125 15 3.125H4.375C3.87772 3.125 3.40081 3.32254 3.04917 3.67417C2.69754 4.02581 2.5 4.50272 2.5 5V15C2.5 15.4973 2.69754 15.9742 3.04917 16.3258C3.40081 16.6775 3.87772 16.875 4.375 16.875H16.875C17.2065 16.875 17.5245 16.7433 17.7589 16.5089C17.9933 16.2745 18.125 15.9565 18.125 15.625V6.875C18.125 6.54348 17.9933 6.22554 17.7589 5.99112C17.5245 5.7567 17.2065 5.625 16.875 5.625ZM14.0625 11.875C13.8771 11.875 13.6958 11.82 13.5417 11.717C13.3875 11.614 13.2673 11.4676 13.1964 11.2963C13.1254 11.125 13.1068 10.9365 13.143 10.7546C13.1792 10.5727 13.2685 10.4057 13.3996 10.2746C13.5307 10.1435 13.6977 10.0542 13.8796 10.018C14.0615 9.98184 14.25 10.0004 14.4213 10.0714C14.5926 10.1423 14.739 10.2625 14.842 10.4167C14.945 10.5708 15 10.7521 15 10.9375C15 11.1861 14.9012 11.4246 14.7254 11.6004C14.5496 11.7762 14.3111 11.875 14.0625 11.875Z"/></svg>
+      <span>Финансы</span>
+    </a>
+  </nav>
+
+  <button type="button" class="feed-user" aria-haspopup="menu">
+    <span class="feed-user-avatar"></span>
+    <span class="feed-user-name">Владислав&nbsp;Г.</span>
+    <svg class="feed-user-caret" width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M5 8l5 5 5-5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </button>
+</header>
+
+<!-- ===== PAGE ===== -->
+<main class="profile-page">
+  <a class="profile-back" href="students.html">
+    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+      <path d="M12 4 L6 10 L12 16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    Все студенты
+  </a>
+
+  <div class="profile-layout">
+
+    <!-- LEFT SIDEBAR NAV -->
+    <aside class="profile-nav" aria-label="Разделы профиля">
+      <a href="#about" class="profile-nav-item is-active">О студенте</a>
+      <a href="#achievements" class="profile-nav-item">Достижения</a>
+      <a href="#orders" class="profile-nav-item">
+        <span>Выполненные заказы</span>
+        <span class="profile-nav-num">18</span>
+      </a>
+      <a href="#services" class="profile-nav-item">Услуги и цены</a>
+      <a href="#reviews" class="profile-nav-item">
+        <span>Отзывы</span>
+        <span class="profile-nav-num">60</span>
+      </a>
+    </aside>
+
+    <!-- MAIN COLUMN -->
+    <div class="profile-main">
+
+      <!-- ===== HERO ===== -->
+      <section class="profile-hero">
+        <img class="profile-hero-photo" src="assets/student-photo.png" alt="Анастасия Александрова"/>
+        <div class="profile-hero-actions">
+          <button type="button" class="profile-icon-btn" aria-label="Поделиться">
+            <svg width="28" height="28" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M16.5632 15.6255C16.5633 16.036 16.4735 16.4416 16.3001 16.8137C16.1267 17.1858 15.874 17.5154 15.5597 17.7795C15.2454 18.0435 14.8771 18.2355 14.4806 18.3421C14.0842 18.4486 13.6692 18.467 13.2649 18.3961C12.8606 18.3252 12.4767 18.1667 12.1401 17.9316C11.8036 17.6965 11.5226 17.3906 11.3169 17.0354C11.1112 16.6801 10.9857 16.2842 10.9493 15.8753C10.9129 15.4664 10.9665 15.0545 11.1062 14.6685L6.96557 12.0084C6.57011 12.3963 6.06891 12.6588 5.52483 12.7629C4.98076 12.867 4.41804 12.8082 3.90729 12.5937C3.39653 12.3793 2.96048 12.0188 2.65383 11.5574C2.34718 11.0961 2.18359 10.5545 2.18359 10.0005C2.18359 9.4466 2.34718 8.90498 2.65383 8.44364C2.96048 7.98231 3.39653 7.6218 3.90729 7.40735C4.41804 7.1929 4.98076 7.13405 5.52483 7.23819C6.06891 7.34233 6.57011 7.60482 6.96557 7.99273L11.1062 5.33648C10.8691 4.68496 10.8804 3.96891 11.1378 3.32517C11.3953 2.68142 11.881 2.15512 12.502 1.84682C13.123 1.53852 13.8358 1.46985 14.5043 1.65392C15.1727 1.83799 15.7499 2.2619 16.1256 2.84465C16.5012 3.4274 16.649 4.12812 16.5406 4.81293C16.4323 5.49774 16.0754 6.11861 15.5382 6.55692C15.001 6.99522 14.3211 7.22022 13.6285 7.18893C12.9358 7.15763 12.279 6.87223 11.7835 6.38727L7.64292 9.04742C7.8667 9.66582 7.8667 10.3431 7.64292 10.9615L11.7835 13.6216C12.1789 13.2347 12.6795 12.973 13.2228 12.8692C13.7662 12.7654 14.328 12.824 14.8382 13.0379C15.3483 13.2518 15.7841 13.6114 16.0909 14.0716C16.3977 14.5319 16.562 15.0724 16.5632 15.6255Z"/></svg>
+          </button>
+          <button type="button" class="profile-icon-btn" aria-label="В избранное">
+            <svg width="28" height="28" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M18.75 7.34375C18.75 12.8125 10.6414 17.2391 10.2961 17.4219C10.2051 17.4708 10.1033 17.4965 10 17.4965C9.89665 17.4965 9.79492 17.4708 9.70391 17.4219C9.35859 17.2391 1.25 12.8125 1.25 7.34375C1.25145 6.05955 1.76223 4.82837 2.6703 3.9203C3.57837 3.01223 4.80955 2.50145 6.09375 2.5C7.70703 2.5 9.11953 3.19375 10 4.36641C10.8805 3.19375 12.293 2.5 13.9062 2.5C15.1904 2.50145 16.4216 3.01223 17.3297 3.9203C18.2378 4.82837 18.7486 6.05955 18.75 7.34375Z"/></svg>
+          </button>
+        </div>
+
+        <div class="profile-hero-info">
+          <div class="profile-badge">
+            <img src="assets/SealCheck.svg" alt="" width="20" height="20"/>
+            <span>Студенческий проверен</span>
+            <svg width="14" height="8" viewBox="0 0 14 8" fill="none" aria-hidden="true">
+              <path d="M1 1 L7 7 L13 1" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+
+          <h1 class="profile-name">Анастасия Александрова</h1>
+
+          <div class="profile-rating">
+            <span class="profile-rating-item">
+              <img src="assets/Star.svg" alt="" width="20" height="20"/>
+              <span class="profile-rating-num">4.9</span>
+            </span>
+            <span class="profile-rating-item">
+              <img src="assets/ChatTeardropDots.svg" alt="" width="20" height="20"/>
+              <span class="profile-rating-num">18 отзывов</span>
+            </span>
+          </div>
+
+          <div class="profile-tags">
+            <span class="profile-tag">Письменный перевод</span>
+            <span class="profile-tag">Сопровождение иностранцев</span>
+            <span class="profile-tag">Репетитор</span>
+            <span class="profile-tag">Репетитор</span>
+            <span class="profile-tag">Репетитор</span>
+          </div>
+
+          <div class="profile-hero-divider"></div>
+
+          <div class="profile-meta">
+            <span>Ханты-Мансийск</span>
+            <span class="profile-meta-dot">·</span>
+            <span>ЮГУ</span>
+            <span class="profile-meta-dot">·</span>
+            <span>Лингвистика, 3 курс</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== CTA STRIP ===== -->
+      <section class="profile-cta">
+        <button type="button" class="profile-btn profile-btn--primary">Предложить задачу</button>
+        <button type="button" class="profile-btn profile-btn--secondary">Написать</button>
+        <span class="profile-cta-note">Отвечает в течение<br><strong>2 часов</strong></span>
+      </section>
+
+      <!-- ===== ABOUT ===== -->
+      <section class="profile-card" id="about">
+        <header class="profile-card-head">
+          <h2 class="profile-h2">О студенте</h2>
+          <button type="button" class="profile-collapse" aria-label="Свернуть"></button>
+        </header>
+        <div class="profile-card-body">
+          <p class="profile-bio">Учусь на третьем курсе лингвистики в ЮГУ, направление — перевод и переводоведение, английский язык. С первого курса работаю на форумах и конференциях в Ханты-Мансийске: переводила в режиме последовательного перевода, сопровождала делегации, выполняла хостес-функции на крупных событиях окружного уровня. Беру задачи в трёх направлениях: письменный перевод текстов общей и туристической тематики, устный последовательный перевод на встречах и переговорах, репетиторство по английскому для школьников 5–9 классов. До отклика на задачу обычно прошу прислать пример текста или короткое описание мероприятия, чтобы оценить, подходит ли мой уровень и будет ли результат полезен. Если вижу, что не справлюсь — честно говорю, не берусь ради опыта</p>
+
+          <h3 class="profile-h3">Навыки</h3>
+          <div class="profile-tags">
+            <span class="profile-tag">Английский B2</span>
+            <span class="profile-tag">Немецкий А2</span>
+            <span class="profile-tag">Перевод субтитров</span>
+            <span class="profile-tag">SmartCat</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== ACHIEVEMENTS ===== -->
+      <section class="profile-card" id="achievements">
+        <header class="profile-card-head">
+          <h2 class="profile-h2">Достижения</h2>
+          <button type="button" class="profile-collapse" aria-label="Свернуть"></button>
+        </header>
+        <div class="profile-card-body">
+          <ul class="profile-list">
+            <li><span class="profile-year">2026</span><span>Стажировка в туристско-информационном центре Югры</span></li>
+            <li><span class="profile-year">2026</span><span>Курс «Синхронный перевод: вход в профессию», Лингваконтакт</span></li>
+            <li><span class="profile-year">2025</span><span>Волонтёр-переводчик на чемпионате мира по ММА</span></li>
+            <li><span class="profile-year">2024</span><span>Сертификат IELTS 7.5</span></li>
+            <li><span class="profile-year">2022</span><span>II место на студенческой олимпиаде по устному переводу</span></li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- ===== ORDERS ===== -->
+      <section class="profile-card" id="orders">
+        <header class="profile-card-head">
+          <h2 class="profile-h2">Выполненные заказы<sup class="profile-h2-num">14</sup></h2>
+          <button type="button" class="profile-collapse" aria-label="Свернуть"></button>
+        </header>
+        <div class="profile-card-body">
+          <div class="profile-filter-row">
+            <button type="button" class="profile-pill is-active">Все</button>
+            <button type="button" class="profile-pill profile-pill--filled">
+              <span>Ивенты</span><span class="profile-pill-num">6</span>
+              <svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 2 L10 10 M10 2 L2 10" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/></svg>
+            </button>
+            <button type="button" class="profile-pill">IT</button>
+            <button type="button" class="profile-pill">SMM</button>
+            <button type="button" class="profile-pill">дизайн</button>
+          </div>
+
+          <div class="profile-orders">
+            <article class="profile-order is-open">
+              <header class="profile-order-head">
+                <div class="profile-order-headline">
+                  <h3 class="profile-order-title">Сопровождение гостей форума «Югра-Экспо»</h3>
+                  <div class="profile-order-meta">
+                    <span class="profile-order-meta-item">
+                      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="#1153B5" stroke-width="1.6" aria-hidden="true"><path d="M10 18s6-5 6-10a6 6 0 1 0-12 0c0 5 6 10 6 10Z"/><circle cx="10" cy="8" r="2"/></svg>
+                      Ханты-Мансийск, КВЦ «Югра-Экспо»
+                    </span>
+                    <span class="profile-order-meta-item">
+                      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="#1153B5" stroke-width="1.6" aria-hidden="true"><rect x="3" y="4" width="14" height="13" rx="2"/><path d="M3 8h14M7 2v3M13 2v3"/></svg>
+                      Октябрь 2026 <span class="profile-meta-dot">·</span> 6 дней
+                    </span>
+                  </div>
+                </div>
+                <button type="button" class="profile-order-toggle" aria-label="Свернуть">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 15 L12 9 L18 15" stroke="#020327" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </button>
+              </header>
+
+              <div class="profile-order-tabs" role="tablist">
+                <button type="button" class="profile-tab is-active" data-tab="task">О задаче</button>
+                <button type="button" class="profile-tab" data-tab="review">Отзыв заказчика</button>
+                <button type="button" class="profile-tab" data-tab="artifacts">Артефакты</button>
+              </div>
+
+              <div class="profile-order-body">
+                <div class="profile-tab-panel is-active" data-panel="task">
+                  <p>Работала в составе команды хостес на форуме «Югра-Экспо» все шесть дней. В мои обязанности входила встреча и регистрация участников на стойке, сопровождение делегаций по выставочным площадкам, координация логистики между секциями.</p>
+                  <hr class="profile-order-sep"/>
+                  <div class="profile-tags profile-tags--sm">
+                    <span class="profile-tag profile-tag--sm">Координация</span>
+                    <span class="profile-tag profile-tag--sm">Хостес</span>
+                    <span class="profile-tag profile-tag--sm">Работа с VIP-гостями</span>
+                    <span class="profile-tag profile-tag--sm">Английский язык</span>
+                  </div>
+                </div>
+
+                <div class="profile-tab-panel" data-panel="review">
+                  <div class="profile-review-stars profile-review-stars--lg" aria-label="5 из 5">
+                    <img src="assets/Star.svg" alt="" width="22" height="22"/>
+                    <img src="assets/Star.svg" alt="" width="22" height="22"/>
+                    <img src="assets/Star.svg" alt="" width="22" height="22"/>
+                    <img src="assets/Star.svg" alt="" width="22" height="22"/>
+                    <img src="assets/Star.svg" alt="" width="22" height="22"/>
+                  </div>
+                  <p class="profile-tab-review-text">Анна работала на форуме все шесть дней, сопровождала делегации из ХМАО, ЯНАО и Тюменской области. Хорошо ориентировалась в программе, корректно вела себя с гостями, оперативно решала бытовые вопросы. На английском общалась с делегацией из Казахстана — без проблем. Готовы пригласить снова на весеннюю сессию</p>
+                  <hr class="profile-order-sep"/>
+                  <div class="profile-review-author-row">
+                    <span class="profile-review-author-logo" aria-hidden="true"></span>
+                    <span class="profile-review-author-name">КВЦ «Югра-Экспо»</span>
+                  </div>
+                </div>
+
+                <div class="profile-tab-panel" data-panel="artifacts">
+                  <div class="profile-artifacts-row">
+                    <button type="button" class="profile-artifacts-arrow profile-artifacts-arrow--left" aria-label="Назад">
+                      <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M9 2 L4 7 L9 12" stroke="#020327" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </button>
+                    <div class="profile-artifact profile-artifact--a"></div>
+                    <div class="profile-artifact profile-artifact--b"></div>
+                    <div class="profile-artifact profile-artifact--c"></div>
+                    <button type="button" class="profile-artifacts-arrow profile-artifacts-arrow--right" aria-label="Вперёд">
+                      <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M5 2 L10 7 L5 12" stroke="#020327" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </button>
+                  </div>
+                  <ul class="profile-files">
+                    <li>
+                      <span class="profile-file-icon" aria-hidden="true">
+                        <svg width="18" height="20" viewBox="0 0 20 22" fill="none"><path d="M4 1h9l5 5v14a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1Z" stroke="#1153B5" stroke-width="1.5"/><path d="M13 1v5h5" stroke="#1153B5" stroke-width="1.5"/></svg>
+                      </span>
+                      <span>Презентация программы форума.pdf</span>
+                    </li>
+                    <li>
+                      <span class="profile-file-icon" aria-hidden="true">
+                        <svg width="18" height="20" viewBox="0 0 20 22" fill="none"><path d="M4 1h9l5 5v14a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1Z" stroke="#1153B5" stroke-width="1.5"/><path d="M13 1v5h5" stroke="#1153B5" stroke-width="1.5"/></svg>
+                      </span>
+                      <span>Список делегаций.pdf</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </article>
+
+            <article class="profile-order">
+              <header class="profile-order-head">
+                <div class="profile-order-headline">
+                  <h3 class="profile-order-title">Перевод на конференции «Цифровая Югра»</h3>
+                  <div class="profile-order-meta">
+                    <span class="profile-order-meta-item">
+                      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="#1153B5" stroke-width="1.6" aria-hidden="true"><path d="M10 18s6-5 6-10a6 6 0 1 0-12 0c0 5 6 10 6 10Z"/><circle cx="10" cy="8" r="2"/></svg>
+                      Ханты-Мансийск, КВЦ «Югра-Экспо»
+                    </span>
+                    <span class="profile-order-meta-item">
+                      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="#1153B5" stroke-width="1.6" aria-hidden="true"><rect x="3" y="4" width="14" height="13" rx="2"/><path d="M3 8h14M7 2v3M13 2v3"/></svg>
+                      Октябрь 2026 <span class="profile-meta-dot">·</span> 6 дней
+                    </span>
+                  </div>
+                </div>
+                <button type="button" class="profile-order-toggle" aria-label="Развернуть">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 15 L12 9 L18 15" stroke="#020327" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </button>
+              </header>
+
+              <div class="profile-order-tabs" role="tablist">
+                <button type="button" class="profile-tab is-active" data-tab="task">О задаче</button>
+                <button type="button" class="profile-tab" data-tab="review">Отзыв заказчика</button>
+                <button type="button" class="profile-tab" data-tab="artifacts">Артефакты</button>
+              </div>
+
+              <div class="profile-order-body">
+                <div class="profile-tab-panel is-active" data-panel="task">
+                  <p>Синхронный перевод пленарных сессий и последовательный перевод круглых столов на конференции «Цифровая Югра». Темы: ИИ в госуправлении, цифровая экономика региона, кибербезопасность.</p>
+                  <hr class="profile-order-sep"/>
+                  <div class="profile-tags profile-tags--sm">
+                    <span class="profile-tag profile-tag--sm">Синхронный перевод</span>
+                    <span class="profile-tag profile-tag--sm">Английский язык</span>
+                    <span class="profile-tag profile-tag--sm">IT-тематика</span>
+                    <span class="profile-tag profile-tag--sm">Конференция</span>
+                  </div>
+                </div>
+
+                <div class="profile-tab-panel" data-panel="review">
+                  <div class="profile-review-stars profile-review-stars--lg" aria-label="5 из 5">
+                    <img src="assets/Star.svg" alt="" width="22" height="22"/>
+                    <img src="assets/Star.svg" alt="" width="22" height="22"/>
+                    <img src="assets/Star.svg" alt="" width="22" height="22"/>
+                    <img src="assets/Star.svg" alt="" width="22" height="22"/>
+                    <img src="assets/Star.svg" alt="" width="22" height="22"/>
+                  </div>
+                  <p class="profile-tab-review-text">Анна обеспечила синхронный перевод трёх пленарных сессий без единого срыва. Тематика была сложной — много специализированной IT-лексики, но качество перевода было на высшем уровне. Спикеры из Сингапура и ОАЭ остались довольны.</p>
+                  <hr class="profile-order-sep"/>
+                  <div class="profile-review-author-row">
+                    <span class="profile-review-author-logo" aria-hidden="true"></span>
+                    <span class="profile-review-author-name">Департамент информационных технологий ХМАО</span>
+                  </div>
+                </div>
+
+                <div class="profile-tab-panel" data-panel="artifacts">
+                  <ul class="profile-files">
+                    <li>
+                      <span class="profile-file-icon" aria-hidden="true">
+                        <svg width="18" height="20" viewBox="0 0 20 22" fill="none"><path d="M4 1h9l5 5v14a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1Z" stroke="#1153B5" stroke-width="1.5"/><path d="M13 1v5h5" stroke="#1153B5" stroke-width="1.5"/></svg>
+                      </span>
+                      <span>Программа конференции.pdf</span>
+                    </li>
+                    <li>
+                      <span class="profile-file-icon" aria-hidden="true">
+                        <svg width="18" height="20" viewBox="0 0 20 22" fill="none"><path d="M4 1h9l5 5v14a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1Z" stroke="#1153B5" stroke-width="1.5"/><path d="M13 1v5h5" stroke="#1153B5" stroke-width="1.5"/></svg>
+                      </span>
+                      <span>Глоссарий IT-терминов.pdf</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </article>
+
+            <article class="profile-order">
+              <header class="profile-order-head">
+                <div class="profile-order-headline">
+                  <h3 class="profile-order-title">Хостес на премии «Признание Югры»</h3>
+                  <div class="profile-order-meta">
+                    <span class="profile-order-meta-item">
+                      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="#1153B5" stroke-width="1.6" aria-hidden="true"><path d="M10 18s6-5 6-10a6 6 0 1 0-12 0c0 5 6 10 6 10Z"/><circle cx="10" cy="8" r="2"/></svg>
+                      Ханты-Мансийск, КВЦ «Югра-Экспо»
+                    </span>
+                    <span class="profile-order-meta-item">
+                      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="#1153B5" stroke-width="1.6" aria-hidden="true"><rect x="3" y="4" width="14" height="13" rx="2"/><path d="M3 8h14M7 2v3M13 2v3"/></svg>
+                      Октябрь 2026 <span class="profile-meta-dot">·</span> 6 дней
+                    </span>
+                  </div>
+                </div>
+                <button type="button" class="profile-order-toggle" aria-label="Развернуть">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 15 L12 9 L18 15" stroke="#020327" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </button>
+              </header>
+
+              <div class="profile-order-tabs" role="tablist">
+                <button type="button" class="profile-tab is-active" data-tab="task">О задаче</button>
+                <button type="button" class="profile-tab" data-tab="review">Отзыв заказчика</button>
+                <button type="button" class="profile-tab" data-tab="artifacts">Артефакты</button>
+              </div>
+
+              <div class="profile-order-body">
+                <div class="profile-tab-panel is-active" data-panel="task">
+                  <p>Работала в команде хостес на церемонии вручения региональной премии «Признание Югры». Встречала лауреатов на красной дорожке, координировала выход на сцену, помогала с гардеробом VIP-гостям.</p>
+                  <hr class="profile-order-sep"/>
+                  <div class="profile-tags profile-tags--sm">
+                    <span class="profile-tag profile-tag--sm">Хостес</span>
+                    <span class="profile-tag profile-tag--sm">Координация</span>
+                    <span class="profile-tag profile-tag--sm">Дресс-код</span>
+                    <span class="profile-tag profile-tag--sm">Гостеприимство</span>
+                  </div>
+                </div>
+
+                <div class="profile-tab-panel" data-panel="review">
+                  <div class="profile-review-stars profile-review-stars--lg" aria-label="5 из 5">
+                    <img src="assets/Star.svg" alt="" width="22" height="22"/>
+                    <img src="assets/Star.svg" alt="" width="22" height="22"/>
+                    <img src="assets/Star.svg" alt="" width="22" height="22"/>
+                    <img src="assets/Star.svg" alt="" width="22" height="22"/>
+                    <img src="assets/Star.svg" alt="" width="22" height="22"/>
+                  </div>
+                  <p class="profile-tab-review-text">Отличная работа. Анна выглядела безупречно, держалась с гостями уверенно и доброжелательно. Все лауреаты вышли на сцену вовремя — никаких задержек по нашему сектору.</p>
+                  <hr class="profile-order-sep"/>
+                  <div class="profile-review-author-row">
+                    <span class="profile-review-author-logo" aria-hidden="true"></span>
+                    <span class="profile-review-author-name">Премия «Признание Югры»</span>
+                  </div>
+                </div>
+
+                <div class="profile-tab-panel" data-panel="artifacts">
+                  <ul class="profile-files">
+                    <li>
+                      <span class="profile-file-icon" aria-hidden="true">
+                        <svg width="18" height="20" viewBox="0 0 20 22" fill="none"><path d="M4 1h9l5 5v14a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1Z" stroke="#1153B5" stroke-width="1.5"/><path d="M13 1v5h5" stroke="#1153B5" stroke-width="1.5"/></svg>
+                      </span>
+                      <span>Сценарий церемонии.pdf</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </article>
+
+            <article class="profile-order is-hidden">
+              <header class="profile-order-head">
+                <div class="profile-order-headline">
+                  <h3 class="profile-order-title">Помощник на бизнес-форуме «Югра-2026»</h3>
+                  <div class="profile-order-meta">
+                    <span class="profile-order-meta-item">
+                      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="#1153B5" stroke-width="1.6" aria-hidden="true"><path d="M10 18s6-5 6-10a6 6 0 1 0-12 0c0 5 6 10 6 10Z"/><circle cx="10" cy="8" r="2"/></svg>
+                      Ханты-Мансийск, КВЦ «Югра-Экспо»
+                    </span>
+                    <span class="profile-order-meta-item">
+                      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="#1153B5" stroke-width="1.6" aria-hidden="true"><rect x="3" y="4" width="14" height="13" rx="2"/><path d="M3 8h14M7 2v3M13 2v3"/></svg>
+                      Сентябрь 2026 <span class="profile-meta-dot">·</span> 4 дня
+                    </span>
+                  </div>
+                </div>
+                <button type="button" class="profile-order-toggle" aria-label="Развернуть">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 15 L12 9 L18 15" stroke="#020327" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </button>
+              </header>
+
+              <div class="profile-order-tabs" role="tablist">
+                <button type="button" class="profile-tab is-active" data-tab="task">О задаче</button>
+                <button type="button" class="profile-tab" data-tab="review">Отзыв заказчика</button>
+                <button type="button" class="profile-tab" data-tab="artifacts">Артефакты</button>
+              </div>
+
+              <div class="profile-order-body">
+                <div class="profile-tab-panel is-active" data-panel="task">
+                  <p>Работа в зоне регистрации участников бизнес-форума: выдача бейджей, навигация по площадке, помощь спикерам с подключением презентационного оборудования.</p>
+                  <hr class="profile-order-sep"/>
+                  <div class="profile-tags profile-tags--sm">
+                    <span class="profile-tag profile-tag--sm">Регистрация</span>
+                    <span class="profile-tag profile-tag--sm">Навигация</span>
+                    <span class="profile-tag profile-tag--sm">Техподдержка</span>
+                  </div>
+                </div>
+
+                <div class="profile-tab-panel" data-panel="review">
+                  <div class="profile-review-stars profile-review-stars--lg" aria-label="5 из 5">
+                    <img src="assets/Star.svg" alt="" width="22" height="22"/>
+                    <img src="assets/Star.svg" alt="" width="22" height="22"/>
+                    <img src="assets/Star.svg" alt="" width="22" height="22"/>
+                    <img src="assets/Star.svg" alt="" width="22" height="22"/>
+                    <img src="assets/Star.svg" alt="" width="22" height="22"/>
+                  </div>
+                  <p class="profile-tab-review-text">Очень собранная и внимательная. На стойке регистрации очередь не задерживалась, все участники получили бейджи в срок.</p>
+                  <hr class="profile-order-sep"/>
+                  <div class="profile-review-author-row">
+                    <span class="profile-review-author-logo" aria-hidden="true"></span>
+                    <span class="profile-review-author-name">Оргкомитет «Югра-2026»</span>
+                  </div>
+                </div>
+
+                <div class="profile-tab-panel" data-panel="artifacts">
+                  <ul class="profile-files">
+                    <li>
+                      <span class="profile-file-icon" aria-hidden="true">
+                        <svg width="18" height="20" viewBox="0 0 20 22" fill="none"><path d="M4 1h9l5 5v14a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1Z" stroke="#1153B5" stroke-width="1.5"/><path d="M13 1v5h5" stroke="#1153B5" stroke-width="1.5"/></svg>
+                      </span>
+                      <span>Список спикеров.pdf</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </article>
+
+            <article class="profile-order is-hidden">
+              <header class="profile-order-head">
+                <div class="profile-order-headline">
+                  <h3 class="profile-order-title">Регистратор на форуме молодых предпринимателей</h3>
+                  <div class="profile-order-meta">
+                    <span class="profile-order-meta-item">
+                      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="#1153B5" stroke-width="1.6" aria-hidden="true"><path d="M10 18s6-5 6-10a6 6 0 1 0-12 0c0 5 6 10 6 10Z"/><circle cx="10" cy="8" r="2"/></svg>
+                      Сургут, КЦ «Энергетик»
+                    </span>
+                    <span class="profile-order-meta-item">
+                      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="#1153B5" stroke-width="1.6" aria-hidden="true"><rect x="3" y="4" width="14" height="13" rx="2"/><path d="M3 8h14M7 2v3M13 2v3"/></svg>
+                      Май 2026 <span class="profile-meta-dot">·</span> 3 дня
+                    </span>
+                  </div>
+                </div>
+                <button type="button" class="profile-order-toggle" aria-label="Развернуть">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 15 L12 9 L18 15" stroke="#020327" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </button>
+              </header>
+
+              <div class="profile-order-tabs" role="tablist">
+                <button type="button" class="profile-tab is-active" data-tab="task">О задаче</button>
+                <button type="button" class="profile-tab" data-tab="review">Отзыв заказчика</button>
+                <button type="button" class="profile-tab" data-tab="artifacts">Артефакты</button>
+              </div>
+
+              <div class="profile-order-body">
+                <div class="profile-tab-panel is-active" data-panel="task">
+                  <p>Регистрация участников и спикеров форума молодых предпринимателей. Работа в системе электронных пропусков, выдача стартовых пакетов, ответы на вопросы по программе.</p>
+                  <hr class="profile-order-sep"/>
+                  <div class="profile-tags profile-tags--sm">
+                    <span class="profile-tag profile-tag--sm">Регистрация</span>
+                    <span class="profile-tag profile-tag--sm">CRM</span>
+                    <span class="profile-tag profile-tag--sm">Клиентский сервис</span>
+                  </div>
+                </div>
+
+                <div class="profile-tab-panel" data-panel="review">
+                  <div class="profile-review-stars profile-review-stars--lg" aria-label="5 из 5">
+                    <img src="assets/Star.svg" alt="" width="22" height="22"/>
+                    <img src="assets/Star.svg" alt="" width="22" height="22"/>
+                    <img src="assets/Star.svg" alt="" width="22" height="22"/>
+                    <img src="assets/Star.svg" alt="" width="22" height="22"/>
+                    <img src="assets/Star.svg" alt="" width="22" height="22"/>
+                  </div>
+                  <p class="profile-tab-review-text">Быстро освоила нашу CRM, вежливо общалась с участниками. Хорошо справлялась в часы пиковой нагрузки.</p>
+                  <hr class="profile-order-sep"/>
+                  <div class="profile-review-author-row">
+                    <span class="profile-review-author-logo" aria-hidden="true"></span>
+                    <span class="profile-review-author-name">Фонд поддержки предпринимательства Югры</span>
+                  </div>
+                </div>
+
+                <div class="profile-tab-panel" data-panel="artifacts">
+                  <ul class="profile-files">
+                    <li>
+                      <span class="profile-file-icon" aria-hidden="true">
+                        <svg width="18" height="20" viewBox="0 0 20 22" fill="none"><path d="M4 1h9l5 5v14a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1Z" stroke="#1153B5" stroke-width="1.5"/><path d="M13 1v5h5" stroke="#1153B5" stroke-width="1.5"/></svg>
+                      </span>
+                      <span>Инструкция регистратора.pdf</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </article>
+
+            <article class="profile-order is-hidden">
+              <header class="profile-order-head">
+                <div class="profile-order-headline">
+                  <h3 class="profile-order-title">Координатор зоны «Технопарк» на IT-фестивале</h3>
+                  <div class="profile-order-meta">
+                    <span class="profile-order-meta-item">
+                      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="#1153B5" stroke-width="1.6" aria-hidden="true"><path d="M10 18s6-5 6-10a6 6 0 1 0-12 0c0 5 6 10 6 10Z"/><circle cx="10" cy="8" r="2"/></svg>
+                      Ханты-Мансийск, Технопарк Югры
+                    </span>
+                    <span class="profile-order-meta-item">
+                      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="#1153B5" stroke-width="1.6" aria-hidden="true"><rect x="3" y="4" width="14" height="13" rx="2"/><path d="M3 8h14M7 2v3M13 2v3"/></svg>
+                      Март 2026 <span class="profile-meta-dot">·</span> 2 дня
+                    </span>
+                  </div>
+                </div>
+                <button type="button" class="profile-order-toggle" aria-label="Развернуть">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 15 L12 9 L18 15" stroke="#020327" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </button>
+              </header>
+
+              <div class="profile-order-tabs" role="tablist">
+                <button type="button" class="profile-tab is-active" data-tab="task">О задаче</button>
+                <button type="button" class="profile-tab" data-tab="review">Отзыв заказчика</button>
+                <button type="button" class="profile-tab" data-tab="artifacts">Артефакты</button>
+              </div>
+
+              <div class="profile-order-body">
+                <div class="profile-tab-panel is-active" data-panel="task">
+                  <p>Координация работы стендов резидентов технопарка на IT-фестивале: расписание презентаций, помощь с демонстрационным оборудованием, перевод для англоязычных гостей.</p>
+                  <hr class="profile-order-sep"/>
+                  <div class="profile-tags profile-tags--sm">
+                    <span class="profile-tag profile-tag--sm">Координация стендов</span>
+                    <span class="profile-tag profile-tag--sm">Английский язык</span>
+                    <span class="profile-tag profile-tag--sm">IT-тематика</span>
+                  </div>
+                </div>
+
+                <div class="profile-tab-panel" data-panel="review">
+                  <div class="profile-review-stars profile-review-stars--lg" aria-label="5 из 5">
+                    <img src="assets/Star.svg" alt="" width="22" height="22"/>
+                    <img src="assets/Star.svg" alt="" width="22" height="22"/>
+                    <img src="assets/Star.svg" alt="" width="22" height="22"/>
+                    <img src="assets/Star.svg" alt="" width="22" height="22"/>
+                    <img src="assets/Star.svg" alt="" width="22" height="22"/>
+                  </div>
+                  <p class="profile-tab-review-text">Анна — отличный координатор. Все 12 стендов нашей зоны работали по графику, презентации шли точно по таймингу.</p>
+                  <hr class="profile-order-sep"/>
+                  <div class="profile-review-author-row">
+                    <span class="profile-review-author-logo" aria-hidden="true"></span>
+                    <span class="profile-review-author-name">Технопарк Югры</span>
+                  </div>
+                </div>
+
+                <div class="profile-tab-panel" data-panel="artifacts">
+                  <ul class="profile-files">
+                    <li>
+                      <span class="profile-file-icon" aria-hidden="true">
+                        <svg width="18" height="20" viewBox="0 0 20 22" fill="none"><path d="M4 1h9l5 5v14a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1Z" stroke="#1153B5" stroke-width="1.5"/><path d="M13 1v5h5" stroke="#1153B5" stroke-width="1.5"/></svg>
+                      </span>
+                      <span>Карта стендов.pdf</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <div class="profile-orders-more">
+            <a href="#" class="profile-more profile-more--accent profile-orders-show">
+              <span class="profile-more-label">Показать еще 3</span>
+              <svg width="20" height="8" viewBox="0 0 14 8" fill="none" aria-hidden="true"><path d="M1 1 L7 7 L13 1" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+            <a href="#" class="profile-more profile-more--muted profile-orders-collapse" hidden>
+              Свернуть все
+              <svg width="20" height="8" viewBox="0 0 14 8" fill="none" aria-hidden="true"><path d="M1 7 L7 1 L13 7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== SERVICES ===== -->
+      <section class="profile-card" id="services">
+        <header class="profile-card-head">
+          <h2 class="profile-h2">Услуги и цены</h2>
+          <button type="button" class="profile-collapse" aria-label="Свернуть"></button>
+        </header>
+        <div class="profile-card-body">
+          <ul class="profile-services">
+            <li>
+              <span class="profile-service-name">Английский для школьников 5–9 классов</span>
+              <span class="profile-service-price">600&nbsp;₽ / 60&nbsp;мин</span>
+            </li>
+            <li>
+              <span class="profile-service-name">Английский для подготовки к ОГЭ</span>
+              <span class="profile-service-price">800&nbsp;₽ / 60&nbsp;мин</span>
+            </li>
+            <li>
+              <span class="profile-service-name">Подготовка к IELTS / TOEFL</span>
+              <span class="profile-service-price">1000&nbsp;₽ / 60&nbsp;мин</span>
+            </li>
+          </ul>
+          <a href="#" class="profile-more">
+            Все услуги
+            <svg width="20" height="8" viewBox="0 0 14 8" fill="none" aria-hidden="true"><path d="M1 1 L7 7 L13 1" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+      </section>
+
+      <!-- ===== REVIEWS ===== -->
+      <section class="profile-card" id="reviews">
+        <header class="profile-card-head">
+          <h2 class="profile-h2">Отзывы<sup class="profile-h2-num">14</sup></h2>
+          <button type="button" class="profile-collapse" aria-label="Свернуть"></button>
+        </header>
+        <div class="profile-card-body">
+          <p class="profile-reviews-notice">Каждый отзыв перед публикацией проходит проверку на неподдельность. Анонимные сообщения не рассматриваются. Тексты не редактируются и не фильтруются — все прошедшие проверку публикуются «как есть».</p>
+
+          <div class="profile-reviews">
+            <article class="profile-review">
+              <div class="profile-review-side">
+                <div class="profile-review-stars" aria-label="5 из 5">
+                  <img src="assets/Star.svg" alt="" width="17" height="17"/>
+                  <img src="assets/Star.svg" alt="" width="17" height="17"/>
+                  <img src="assets/Star.svg" alt="" width="17" height="17"/>
+                  <img src="assets/Star.svg" alt="" width="17" height="17"/>
+                  <img src="assets/Star.svg" alt="" width="17" height="17"/>
+                </div>
+                <div class="profile-review-date">1 апреля 2026</div>
+              </div>
+              <div class="profile-review-body">
+                <div class="profile-review-author">Ольга</div>
+                <div class="profile-review-topic">Английский язык</div>
+                <p class="profile-review-text">Дочке нравится, все понятно. Я была на вводном уроке, мне нравится подача материала.</p>
+              </div>
+            </article>
+
+            <article class="profile-review">
+              <div class="profile-review-side">
+                <div class="profile-review-stars" aria-label="5 из 5">
+                  <img src="assets/Star.svg" alt="" width="17" height="17"/>
+                  <img src="assets/Star.svg" alt="" width="17" height="17"/>
+                  <img src="assets/Star.svg" alt="" width="17" height="17"/>
+                  <img src="assets/Star.svg" alt="" width="17" height="17"/>
+                  <img src="assets/Star.svg" alt="" width="17" height="17"/>
+                </div>
+                <div class="profile-review-date">1 апреля 2026</div>
+              </div>
+              <div class="profile-review-body">
+                <div class="profile-review-author">Венера</div>
+                <div class="profile-review-topic">Подготовка к экзаменам<span class="profile-meta-dot">•</span>ОГЭ по английскому языку</div>
+                <p class="profile-review-text">Дочка занималась с Владиславом — отлично объясняет, понятным языком. Ребенку нравится, спасибо преподавателю.</p>
+              </div>
+            </article>
+
+            <article class="profile-review">
+              <div class="profile-review-side">
+                <div class="profile-review-stars" aria-label="5 из 5">
+                  <img src="assets/Star.svg" alt="" width="17" height="17"/>
+                  <img src="assets/Star.svg" alt="" width="17" height="17"/>
+                  <img src="assets/Star.svg" alt="" width="17" height="17"/>
+                  <img src="assets/Star.svg" alt="" width="17" height="17"/>
+                  <img src="assets/Star.svg" alt="" width="17" height="17"/>
+                </div>
+                <div class="profile-review-date">1 апреля 2026</div>
+              </div>
+              <div class="profile-review-body">
+                <div class="profile-review-author">Яна</div>
+                <div class="profile-review-topic">Английский язык</div>
+                <p class="profile-review-text">Хороший преподаватель, интересно слушать и сразу вникаешь в английский</p>
+              </div>
+            </article>
+
+            <article class="profile-review">
+              <div class="profile-review-side">
+                <div class="profile-review-stars" aria-label="5 из 5">
+                  <img src="assets/Star.svg" alt="" width="17" height="17"/>
+                  <img src="assets/Star.svg" alt="" width="17" height="17"/>
+                  <img src="assets/Star.svg" alt="" width="17" height="17"/>
+                  <img src="assets/Star.svg" alt="" width="17" height="17"/>
+                  <img src="assets/Star.svg" alt="" width="17" height="17"/>
+                </div>
+                <div class="profile-review-date">1 апреля 2026</div>
+              </div>
+              <div class="profile-review-body">
+                <div class="profile-review-author">Ольга</div>
+                <div class="profile-review-topic">Английский язык</div>
+                <p class="profile-review-text">Есть проблемы с английским? Вас пугают 16 времён? Хотелось бы улучшить свои языковые навыки? Тогда вам ко мне!</p>
+              </div>
+            </article>
+          </div>
+
+          <a href="#" class="profile-more">
+            Все отзывы
+            <svg width="20" height="8" viewBox="0 0 14 8" fill="none" aria-hidden="true"><path d="M1 1 L7 7 L13 1" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+      </section>
+
+    </div>
+  </div>
+</main>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+  <div class="footer-top">
+    <div class="footer-brand">
+      <a href="index.html" class="logo">
+        <span class="logo-mark"><img src="assets/logo.svg" alt=""/></span>СТУДРАДАР
+      </a>
+      <p class="footer-tagline">Платформа для краткосрочной занятости студентов — задачи, портфолио, реальный опыт.</p>
+      <div class="footer-social">
+        <a href="#tg" title="Telegram">TG</a>
+        <a href="#vk" title="ВКонтакте">VK</a>
+      </div>
+    </div>
+    <div class="footer-cols">
+      <div class="footer-col">
+        <div class="footer-col-title">Платформа</div>
+        <a href="#about">О нас</a>
+        <a href="#blog">Блог</a>
+        <a href="#policy">Политика</a>
+        <a href="#terms">Соглашение</a>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Студентам</div>
+        <a href="catalog.html">Каталог задач</a>
+        <a href="index.html#tasks">Свежие задачи</a>
+        <a href="index.html#pro">PRO-подписка</a>
+        <a href="index.html#faq">Вопросы</a>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Бизнесу</div>
+        <a href="employer.html">Для работодателей</a>
+        <a href="students.html">Каталог студентов</a>
+        <a href="employer.html#pro">Business-тариф</a>
+        <a href="employer.html#faq">Вопросы</a>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Контакты</div>
+        <a href="#tg">Telegram-бот</a>
+        <a href="#vk">ВКонтакте</a>
+        <a href="mailto:hi@studradar.ru">hi@studradar.ru</a>
+        <a href="#location">Ханты-Мансийск</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span class="footer-copy">© 2025 СтудРадар. Все права защищены.</span>
+    <span class="footer-city">
+      <svg width="13" height="13" viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.6a6.7 6.7 0 0 0-6.7 6.7c0 5 6.7 10.1 6.7 10.1s6.7-5.1 6.7-10.1A6.7 6.7 0 0 0 10 1.6Zm0 9.1a2.4 2.4 0 1 1 0-4.8 2.4 2.4 0 0 1 0 4.8Z"/></svg>
+      Ханты-Мансийск
+    </span>
+  </div>
+</footer>
+
+<script>
+(function() {
+  var toggle = document.querySelector('.toggle');
+  if (toggle) {
+    var pill = toggle.querySelector('.toggle-pill');
+    var links = Array.prototype.slice.call(toggle.querySelectorAll('a'));
+    function movePill(link, instant) {
+      var tRect = toggle.getBoundingClientRect();
+      var lRect = link.getBoundingClientRect();
+      var x = lRect.left - tRect.left - 6;
+      if (instant) { pill.style.transition = 'none'; pill.offsetHeight; }
+      pill.style.width = lRect.width + 'px';
+      pill.style.transform = 'translateX(' + x + 'px)';
+      if (instant) { pill.offsetHeight; pill.style.transition = ''; }
+    }
+    var active = toggle.querySelector('a.active');
+    if (active) movePill(active, true);
+    window.addEventListener('resize', function() { var a = toggle.querySelector('a.active'); if (a) movePill(a, true); });
+    links.forEach(function(link) {
+      link.addEventListener('click', function(e) {
+        var href = this.getAttribute('href');
+        if (!href || href.startsWith('#')) return;
+        links.forEach(function(l) { l.classList.remove('active'); });
+        this.classList.add('active');
+        movePill(this, false);
+        e.preventDefault();
+        setTimeout(function() { window.location.href = href; }, 440);
+      });
+    });
+  }
+})();
+(function(){
+  var header = document.querySelector('.header');
+  var lastY = 0;
+  window.addEventListener('scroll', function(){
+    var y = window.scrollY;
+    if (y > lastY && y > 80) header.classList.add('header--hidden');
+    else header.classList.remove('header--hidden');
+    lastY = y;
+  }, {passive: true});
+})();
+
+// Sidebar nav: highlight on click
+(function(){
+  var navItems = document.querySelectorAll('.profile-nav-item');
+  navItems.forEach(function(item){
+    item.addEventListener('click', function(){
+      navItems.forEach(function(n){ n.classList.remove('is-active'); });
+      this.classList.add('is-active');
+    });
+  });
+})();
+
+// Card collapse: plus button toggles whole card body
+(function(){
+  document.querySelectorAll('.profile-collapse').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var card = btn.closest('.profile-card');
+      if (!card) return;
+      card.classList.toggle('is-collapsed');
+      btn.setAttribute('aria-label', card.classList.contains('is-collapsed') ? 'Развернуть' : 'Свернуть');
+    });
+  });
+})();
+
+// Order toggle: clicking anywhere on the header expands/collapses an order card
+(function(){
+  document.querySelectorAll('.profile-order-head').forEach(function(head){
+    head.addEventListener('click', function(){
+      var order = head.closest('.profile-order');
+      if (!order) return;
+      order.classList.toggle('is-open');
+      var btn = head.querySelector('.profile-order-toggle');
+      if (btn) btn.setAttribute('aria-label', order.classList.contains('is-open') ? 'Свернуть' : 'Развернуть');
+    });
+  });
+})();
+
+// Orders show-more / collapse-all
+(function(){
+  document.querySelectorAll('.profile-orders').forEach(function(list){
+    var wrap = list.parentElement.querySelector('.profile-orders-more');
+    if (!wrap) return;
+    var showLink = wrap.querySelector('.profile-orders-show');
+    var collapseLink = wrap.querySelector('.profile-orders-collapse');
+    var step = 3;
+    var initial = 3;
+
+    function update(){
+      var hidden = list.querySelectorAll('.profile-order.is-hidden');
+      var visible = list.querySelectorAll('.profile-order:not(.is-hidden)');
+      if (showLink) {
+        if (hidden.length === 0) {
+          showLink.hidden = true;
+        } else {
+          showLink.hidden = false;
+          var n = Math.min(step, hidden.length);
+          var label = showLink.querySelector('.profile-more-label');
+          if (label) label.textContent = 'Показать еще ' + n;
+        }
+      }
+      if (collapseLink) collapseLink.hidden = (visible.length <= initial);
+    }
+
+    if (showLink) {
+      showLink.addEventListener('click', function(e){
+        e.preventDefault();
+        var hidden = list.querySelectorAll('.profile-order.is-hidden');
+        for (var i = 0; i < step && i < hidden.length; i++) {
+          hidden[i].classList.remove('is-hidden');
+        }
+        update();
+      });
+    }
+    if (collapseLink) {
+      collapseLink.addEventListener('click', function(e){
+        e.preventDefault();
+        var orders = list.querySelectorAll('.profile-order');
+        orders.forEach(function(o, idx){
+          if (idx >= initial) o.classList.add('is-hidden');
+          o.classList.remove('is-open');
+        });
+        update();
+      });
+    }
+
+    update();
+  });
+})();
+
+// Order tabs: switch panels
+(function(){
+  document.querySelectorAll('.profile-order').forEach(function(order){
+    var tabs = order.querySelectorAll('.profile-tab');
+    var panels = order.querySelectorAll('.profile-tab-panel');
+    tabs.forEach(function(tab){
+      tab.addEventListener('click', function(){
+        tabs.forEach(function(t){ t.classList.remove('is-active'); });
+        panels.forEach(function(p){ p.classList.remove('is-active'); });
+        tab.classList.add('is-active');
+        var name = tab.getAttribute('data-tab');
+        var panel = order.querySelector('.profile-tab-panel[data-panel="' + name + '"]');
+        if (panel) panel.classList.add('is-active');
+      });
+    });
+  });
+})();
+</script>
+<script src="registration.js"></script>
+</body>
+</html>

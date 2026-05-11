@@ -1,0 +1,462 @@
+﻿<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <title>Каталог студентов — СтудРадар</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="orange-theme" data-screen-label="05 Каталог студентов">
+
+<!-- ===== HEADER ===== -->
+<header class="header">
+  <a href="index.html" class="logo">
+    <span class="logo-mark"><img src="assets/logo.svg" alt=""/></span>СТУДРАДАР
+  </a>
+
+  <nav class="toggle orange" aria-label="Я ищу">
+    <span class="toggle-pill"></span>
+    <a href="index.html">Студентам</a>
+    <a href="employer.html" class="active">Заказчику</a>
+  </nav>
+
+  <nav class="menu">
+    <a href="catalog.html">Задачи</a>
+    <a href="students.html" class="active">Исполнители</a>
+    <a href="#blog">Блог</a>
+  </nav>
+
+  <a href="#location" class="location" title="Сменить город">
+    <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.6a6.7 6.7 0 0 0-6.7 6.7c0 5 6.7 10.1 6.7 10.1s6.7-5.1 6.7-10.1A6.7 6.7 0 0 0 10 1.6Zm0 9.1a2.4 2.4 0 1 1 0-4.8 2.4 2.4 0 0 1 0 4.8Z"/></svg>
+    Ханты-Мансийск
+  </a>
+
+  <div class="search-input-wrap">
+    <input class="search-input" type="text" placeholder="Поиск задач..." autocomplete="off" aria-label="Поиск задач">
+    <div class="search-dropdown" id="search-dropdown"></div>
+  </div>
+  <div class="header-right">
+    <div class="search-wrap" id="search-wrap">
+      <button class="icon-btn search-toggle" aria-label="Поиск" type="button">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M17.2223 16.3755L13.4671 12.621C14.5555 11.3143 15.0982 9.63827 14.9824 7.94158C14.8666 6.24488 14.1011 4.65817 12.8451 3.5115C11.5892 2.36484 9.93956 1.74652 8.23936 1.78516C6.53915 1.82379 4.9193 2.51643 3.71676 3.71896C2.51423 4.9215 1.8216 6.54135 1.78296 8.24155C1.74432 9.94176 2.36264 11.5914 3.50931 12.8473C4.65597 14.1033 6.24269 14.8688 7.93938 14.9846C9.63607 15.1004 11.3121 14.5577 12.6188 13.4693L16.3733 17.2245C16.4803 17.3528 16.6352 17.4004 16.7978 17.4004C16.9604 17.4004 17.1153 17.3528 17.2223 17.2245C17.3982 17.0503 17.3982 16.7212 17.2223 16.3755ZM2.99783 8.40002C2.99783 5.41443 5.41424 3 8.39783 3C11.3814 3 13.7978 5.41443 13.7978 8.40002C13.7978 11.3856 11.3814 13.8 8.39783 13.8C5.41424 13.8 2.99783 11.3856 2.99783 8.40002Z" fill="black" fill-opacity="0.5"/></svg>
+      </button>
+    </div>
+    <a href="#login" class="btn-login">Войти</a>
+    <a href="#menu" class="burger" aria-label="Меню">
+      <svg width="22" height="22" viewBox="0 0 22 22" fill="currentColor"><rect x="3" y="6" width="16" height="2" rx="1"/><rect x="3" y="14" width="16" height="2" rx="1"/></svg>
+    </a>
+  </div>
+</header>
+
+<!-- ===== HERO ===== -->
+<section class="catalog-hero-wrap">
+  <div class="catalog-hero students-hero">
+    <span class="radar-rings"></span>
+    <div class="catalog-hero-inner">
+      <div>
+        <div class="eyebrow">// Биржа талантов</div>
+        <h1 class="catalog-title">КАТАЛОГ<br/>СТУДЕНТОВ</h1>
+        <div class="catalog-tags">
+          <span class="tag" style="background:#1153B5;color:white;transform:rotate(-2deg)">фильтруй</span>
+          <span class="tag" style="background:#1153B5;color:white;transform:rotate(2deg)">выбирай</span>
+          <span class="tag" style="background:#1153B5;color:white;transform:rotate(-1deg)">нанимай</span>
+        </div>
+      </div>
+      <form class="catalog-search students-search" role="search" id="search-form">
+        <input type="search" id="search-input" placeholder="Найти студента по имени или специализации…" autocomplete="off"/>
+        <button type="submit" class="catalog-search-btn students-search-btn" aria-label="Найти">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M17.2223 16.3755L13.4671 12.621C14.5555 11.3143 15.0982 9.63827 14.9824 7.94158C14.8666 6.24488 14.1011 4.65817 12.8451 3.5115C11.5892 2.36484 9.93956 1.74652 8.23936 1.78516C6.53915 1.82379 4.9193 2.51643 3.71676 3.71896C2.51423 4.9215 1.8216 6.54135 1.78296 8.24155C1.74432 9.94176 2.36264 11.5914 3.50931 12.8473C4.65597 14.1033 6.24269 14.8688 7.93938 14.9846C9.63607 15.1004 11.3121 14.5577 12.6188 13.4693L16.3733 17.2245C16.4803 17.3528 16.6352 17.4004 16.7978 17.4004C16.9604 17.4004 17.1153 17.3528 17.2223 17.2245C17.3982 17.0503 17.3982 16.7212 17.2223 16.3755ZM2.99783 8.40002C2.99783 5.41443 5.41424 3 8.39783 3C11.3814 3 13.7978 5.41443 13.7978 8.40002C13.7978 11.3856 11.3814 13.8 8.39783 13.8C5.41424 13.8 2.99783 11.3856 2.99783 8.40002Z" fill="currentColor"/></svg>
+        </button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FILTERS ===== -->
+<div class="catalog-filters-wrap">
+  <div class="cat-tabs" id="cat-tabs">
+    <button class="cat-tab students-tab active" data-cat="Все">Все</button>
+    <button class="cat-tab students-tab" data-cat="Дизайн">Дизайн</button>
+    <button class="cat-tab students-tab" data-cat="Разработка">Разработка</button>
+    <button class="cat-tab students-tab" data-cat="IT">IT</button>
+    <button class="cat-tab students-tab" data-cat="Контент">Контент</button>
+    <button class="cat-tab students-tab" data-cat="SMM">SMM</button>
+    <button class="cat-tab students-tab" data-cat="Видео">Видео</button>
+    <button class="cat-tab students-tab" data-cat="Фото">Фото</button>
+    <button class="cat-tab students-tab" data-cat="Event">Event</button>
+    <button class="cat-tab students-tab" data-cat="Маркетинг">Маркетинг</button>
+  </div>
+  <div class="catalog-controls">
+    <div class="select-wrap">
+      <select id="filter-status">
+        <option value="">Статус: любой</option>
+        <option value="PRO">PRO</option>
+        <option value="NEW">Новички</option>
+        <option value="START">Start</option>
+      </select>
+    </div>
+    <div class="select-wrap">
+      <select id="filter-sort">
+        <option value="rating">По рейтингу</option>
+        <option value="deals">По задачам</option>
+        <option value="name">По имени</option>
+      </select>
+    </div>
+  </div>
+</div>
+
+<!-- ===== RESULTS ===== -->
+<section class="catalog-results">
+  <div class="catalog-meta">
+    <div class="catalog-count" id="catalog-count"></div>
+  </div>
+  <div class="students-grid" id="catalog-grid"></div>
+  <div class="pagination students-pagination" id="pagination"></div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+  <div class="footer-top">
+    <div class="footer-brand">
+      <a href="index.html" class="logo">
+        <span class="logo-mark"><img src="assets/logo.svg" alt=""/></span>СТУДРАДАР
+      </a>
+      <p class="footer-tagline">Платформа для краткосрочной занятости студентов — задачи, портфолио, реальный опыт.</p>
+      <div class="footer-social">
+        <a href="#tg" title="Telegram">TG</a>
+        <a href="#vk" title="ВКонтакте">VK</a>
+      </div>
+    </div>
+    <div class="footer-cols">
+      <div class="footer-col">
+        <div class="footer-col-title">Платформа</div>
+        <a href="#about">О нас</a>
+        <a href="#blog">Блог</a>
+        <a href="#policy">Политика</a>
+        <a href="#terms">Соглашение</a>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Студентам</div>
+        <a href="catalog.html">Каталог задач</a>
+        <a href="index.html#tasks">Свежие задачи</a>
+        <a href="index.html#pro">PRO-подписка</a>
+        <a href="index.html#faq">Вопросы</a>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Бизнесу</div>
+        <a href="employer.html">Для работодателей</a>
+        <a href="students.html">Каталог студентов</a>
+        <a href="employer.html#pro">Business-тариф</a>
+        <a href="employer.html#faq">Вопросы</a>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Контакты</div>
+        <a href="#tg">Telegram-бот</a>
+        <a href="#vk">ВКонтакте</a>
+        <a href="mailto:hi@studradar.ru">hi@studradar.ru</a>
+        <a href="#location">Ханты-Мансийск</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span class="footer-copy">© 2025 СтудРадар. Все права защищены.</span>
+    <span class="footer-city">
+      <svg width="13" height="13" viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.6a6.7 6.7 0 0 0-6.7 6.7c0 5 6.7 10.1 6.7 10.1s6.7-5.1 6.7-10.1A6.7 6.7 0 0 0 10 1.6Zm0 9.1a2.4 2.4 0 1 1 0-4.8 2.4 2.4 0 0 1 0 4.8Z"/></svg>
+      Ханты-Мансийск
+    </span>
+  </div>
+</footer>
+
+<script>
+(function() {
+  // Toggle pill
+  var toggle = document.querySelector('.toggle');
+  if (toggle) {
+    var pill = toggle.querySelector('.toggle-pill');
+    var links = Array.prototype.slice.call(toggle.querySelectorAll('a'));
+    function movePill(link, instant) {
+      var tRect = toggle.getBoundingClientRect();
+      var lRect = link.getBoundingClientRect();
+      var x = lRect.left - tRect.left - 6;
+      if (instant) { pill.style.transition = 'none'; pill.offsetHeight; }
+      pill.style.width = lRect.width + 'px';
+      pill.style.transform = 'translateX(' + x + 'px)';
+      if (instant) { pill.offsetHeight; pill.style.transition = ''; }
+    }
+    var active = toggle.querySelector('a.active');
+    if (active) movePill(active, true);
+    window.addEventListener('resize', function() { var a = toggle.querySelector('a.active'); if (a) movePill(a, true); });
+    links.forEach(function(link) {
+      link.addEventListener('click', function(e) {
+        var href = this.getAttribute('href');
+        if (!href || href.startsWith('#')) return;
+        links.forEach(function(l) { l.classList.remove('active'); });
+        this.classList.add('active');
+        movePill(this, false);
+        e.preventDefault();
+        setTimeout(function() { window.location.href = href; }, 440);
+      });
+    });
+  }
+})();
+
+// Header scroll hide
+(function(){
+  var header = document.querySelector('.header');
+  var lastY = 0;
+  window.addEventListener('scroll', function(){
+    var y = window.scrollY;
+    if (y > lastY && y > 80) header.classList.add('header--hidden');
+    else header.classList.remove('header--hidden');
+    lastY = y;
+  }, {passive: true});
+})();
+
+// Header search
+(function(){
+  var wrap = document.getElementById('search-wrap');
+  if (!wrap) return;
+  var hdr = document.querySelector('.header');
+  var btn = wrap.querySelector('.search-toggle');
+  var input = document.querySelector('.search-input');
+  var drop = document.getElementById('search-dropdown');
+  var iw = document.querySelector('.search-input-wrap');
+  function openSearch(){
+    if (iw && hdr) {
+      var hdrR = hdr.getBoundingClientRect();
+      var logo = hdr.querySelector('.logo');
+      var logoR = logo ? logo.getBoundingClientRect() : {right: hdrR.left + 160};
+      var btnR = btn.getBoundingClientRect();
+      iw.style.left = (logoR.right - hdrR.left + 8) + 'px';
+      iw.style.right = (hdrR.right - btnR.left + 8) + 'px';
+    }
+    wrap.classList.add('open');
+    if (hdr) hdr.classList.add('search-open');
+    setTimeout(function(){ input.focus(); }, 50);
+  }
+  function closeSearch(){
+    if (iw){ iw.style.left = ''; iw.style.right = ''; }
+    wrap.classList.remove('open');
+    if (hdr) hdr.classList.remove('search-open');
+    input.value = '';
+    drop.classList.remove('active');
+  }
+  btn.addEventListener('click', function(){ wrap.classList.contains('open') ? closeSearch() : openSearch(); });
+  document.addEventListener('click', function(e){ if (!wrap.contains(e.target) && !iw.contains(e.target)) closeSearch(); });
+})();
+
+// Students data
+var STUDENTS = [
+  { id:1,  name:'Анна Петрова',    uni:'ЮГУ',    year:'3 курс', spec:'Дизайн',     tag:'START', rate:4.9, deals:12, status:'Самозанятый', city:'Ханты-Мансийск', title:'Оформлю фирменный стиль и соцсети для вашего бренда',   skills:['Figma','UI/UX','Иллюстрация','Брендинг'] },
+  { id:2,  name:'Игорь Левин',     uni:'ТюмГУ',  year:'2 курс', spec:'IT',         tag:'NEW',   rate:4.8, deals:7,  status:'Самозанятый', city:'Тюмень',         title:'Соберу Tilda-лендинг или настрою интеграции',           skills:['Tilda','HTML/CSS','JavaScript','API'] },
+  { id:3,  name:'Мария Кузьмина',  uni:'УрФУ',   year:'4 курс', spec:'Видео',      tag:'START', rate:5.0, deals:18, status:'Самозанятый', city:'Екатеринбург',   title:'Сниму и смонтирую Reels, YouTube-ролики и рекламу',     skills:['Premiere','After Effects','Съёмка','Цветокор'] },
+  { id:4,  name:'Артём Соколов',   uni:'ЮГУ',    year:'1 курс', spec:'Маркетинг',  tag:'NEW',   rate:4.9, deals:23, status:'Самозанятый', city:'Ханты-Мансийск', title:'Разработаю стратегию продвижения и фирменный стиль',    skills:['Маркетинг','Аналитика','Canva','Стратегия'] },
+  { id:5,  name:'Полина Шмидт',    uni:'ТюмГУ',  year:'3 курс', spec:'Фото',       tag:'START', rate:4.7, deals:5,  status:'Фрилансер',   city:'Тюмень',         title:'Сделаю предметную или портретную фотосессию',           skills:['Lightroom','Photoshop','Съёмка','Ретушь'] },
+  { id:6,  name:'Никита Гордеев',  uni:'УрФУ',   year:'4 курс', spec:'Разработка', tag:'PRO',   rate:5.0, deals:31, status:'Самозанятый', city:'Екатеринбург',   title:'Разработаю Telegram-бота или веб-приложение под ключ',  skills:['Python','FastAPI','React','PostgreSQL'] },
+  { id:7,  name:'Дарья Яковлева',  uni:'ЮГУ',    year:'2 курс', spec:'Контент',    tag:'NEW',   rate:4.6, deals:4,  status:'Фрилансер',   city:'Ханты-Мансийск', title:'Напишу тексты для сайта, лендинга или соцсетей',        skills:['Копирайтинг','SEO','Email','Сторителлинг'] },
+  { id:8,  name:'Максим Русов',    uni:'ЮГУ',    year:'3 курс', spec:'SMM',        tag:'START', rate:4.8, deals:9,  status:'Самозанятый', city:'Ханты-Мансийск', title:'Веду аккаунты и выстраиваю контент-план под бизнес',    skills:['Instagram','ВКонтакте','Telegram','Reels'] },
+  { id:9,  name:'Елена Борисова',  uni:'ТюмГУ',  year:'4 курс', spec:'Event',      tag:'START', rate:4.9, deals:15, status:'Самозанятый', city:'Тюмень',         title:'Организую и проведу мероприятие любого формата',        skills:['Ивент','Модерация','Логистика','Промо'] },
+  { id:10, name:'Тимур Исаев',     uni:'ЮГУ',    year:'1 курс', spec:'IT',         tag:'NEW',   rate:4.7, deals:3,  status:'Фрилансер',   city:'Ханты-Мансийск', title:'Настрою рабочие процессы и автоматизирую рутину',       skills:['Python','Google Sheets','Make','Notion'] },
+  { id:11, name:'Олеся Чернова',   uni:'УрФУ',   year:'2 курс', spec:'Дизайн',     tag:'START', rate:4.9, deals:8,  status:'Самозанятый', city:'Екатеринбург',   title:'Создам упаковку, презентацию или баннер для бренда',    skills:['Figma','Photoshop','Canva','Типографика'] },
+  { id:12, name:'Кирилл Захаров',  uni:'ТюмГУ',  year:'4 курс', spec:'Разработка', tag:'PRO',   rate:5.0, deals:27, status:'Самозанятый', city:'Тюмень',         title:'Разработаю MVP мобильного приложения или CRM-интеграцию',skills:['Flutter','Node.js','MongoDB','Docker'] },
+  { id:13, name:'Соня Мельник',    uni:'ЮГУ',    year:'3 курс', spec:'Контент',    tag:'NEW',   rate:4.8, deals:6,  status:'Фрилансер',   city:'Ханты-Мансийск', title:'Сделаю сценарий, сторис или текст для любой площадки',  skills:['Сценарий','Reels','Копирайтинг','Montagе'] },
+  { id:14, name:'Влад Орехов',     uni:'УрФУ',   year:'3 курс', spec:'Маркетинг',  tag:'START', rate:4.6, deals:5,  status:'Фрилансер',   city:'Екатеринбург',   title:'Запущу таргетированную рекламу и проведу аналитику',    skills:['Таргет','VK Ads','Аналитика','A/B тесты'] },
+  { id:15, name:'Ксения Фомина',   uni:'ТюмГУ',  year:'2 курс', spec:'SMM',        tag:'START', rate:4.9, deals:20, status:'Самозанятый', city:'Тюмень',         title:'Продвигаю бренды в ВКонтакте и Telegram с нуля',        skills:['ВКонтакте','Telegram','Контент','Таргет'] },
+  { id:16, name:'Роман Тимофеев',  uni:'ЮГУ',    year:'4 курс', spec:'Видео',      tag:'START', rate:4.8, deals:14, status:'Самозанятый', city:'Ханты-Мансийск', title:'Снимаю и монтирую корпоративное видео и рекламу',       skills:['DaVinci','Premiere','Drone','Анимация'] },
+];
+
+var PAGE_SIZE = 8;
+var currentPage = 1;
+var activeCat = 'Все';
+var activeStatus = '';
+var activeSort = 'rating';
+var searchQuery = '';
+
+function pluralStudents(n) {
+  var m = n % 100;
+  if (m >= 11 && m <= 19) return 'студентов';
+  var r = n % 10;
+  if (r === 1) return 'студент';
+  if (r >= 2 && r <= 4) return 'студента';
+  return 'студентов';
+}
+function pluralTasks(n) {
+  var m = n % 100;
+  if (m >= 11 && m <= 19) return 'задач';
+  var r = n % 10;
+  if (r === 1) return 'задача';
+  if (r >= 2 && r <= 4) return 'задачи';
+  return 'задач';
+}
+
+function filtered() {
+  return STUDENTS.filter(function(s) {
+    var matchCat = activeCat === 'Все' || s.spec === activeCat;
+    var matchStatus = !activeStatus || s.tag === activeStatus;
+    var matchSearch = !searchQuery ||
+      s.name.toLowerCase().includes(searchQuery) ||
+      s.spec.toLowerCase().includes(searchQuery) ||
+      s.skills.join(' ').toLowerCase().includes(searchQuery) ||
+      s.uni.toLowerCase().includes(searchQuery);
+    return matchCat && matchStatus && matchSearch;
+  }).sort(function(a, b) {
+    if (activeSort === 'rating') return b.rate - a.rate;
+    if (activeSort === 'deals')  return b.deals - a.deals;
+    return a.name.localeCompare(b.name, 'ru');
+  });
+}
+
+var tagColors = { PRO: '#1153B5', NEW: '#22A75B', START: '#B04030' };
+var tagLabels = { PRO: 'PRO', NEW: 'NEW', START: 'START' };
+
+function renderCard(s) {
+  var skillsHtml = s.skills.map(function(sk) {
+    return '<span class="sc-skill">' + sk + '</span>';
+  }).join('');
+  var tagBg = tagColors[s.tag] || '#666';
+  var statusIcon = s.status === 'Самозанятый'
+    ? '<svg width="14" height="14" viewBox="0 0 20 20"><circle cx="10" cy="10" r="9" fill="#1153B5"/><path fill="white" d="M14.4 7.6 8.6 13.4l-3-3L7 9l1.6 1.6 4.4-4.4z"/></svg>'
+    : '<svg width="14" height="14" viewBox="0 0 20 20"><circle cx="10" cy="10" r="9" fill="#888"/><path fill="white" d="M14.4 7.6 8.6 13.4l-3-3L7 9l1.6 1.6 4.4-4.4z"/></svg>';
+
+  var isPro = s.tag === 'PRO';
+  var proBadge = isPro ? '<span class="sc-pro-badge">PRO</span>' : '';
+
+  return '<article class="student-card' + (isPro ? ' student-card--pro' : '') + '" data-href="student.html?id=' + s.id + '" tabindex="0" role="link">'
+    + proBadge
+
+    // TOP BLOCK: avatar + name/meta in a row
+    + '<div class="sc-header">'
+      + '<div class="sc-avatar-wrap">'
+        + '<div class="sc-avatar"><img src="assets/avatar.png" alt="' + s.name + '"/></div>'
+      + '</div>'
+      + '<div class="sc-header-info">'
+        + '<div class="sc-top">'
+          + '<h3 class="sc-name">' + s.name + '</h3>'
+          + '<div class="sc-actions">'
+            + '<svg class="sc-action-icon" viewBox="0 0 20 20" fill="currentColor"><path d="M18.75 7.34375C18.75 12.8125 10.6414 17.2391 10.2961 17.4219C10.2051 17.4708 10.1033 17.4965 10 17.4965C9.89665 17.4965 9.79492 17.4708 9.70391 17.4219C9.35859 17.2391 1.25 12.8125 1.25 7.34375C1.25145 6.05955 1.76223 4.82837 2.6703 3.9203C3.57837 3.01223 4.80955 2.50145 6.09375 2.5C7.70703 2.5 9.11953 3.19375 10 4.36641C10.8805 3.19375 12.293 2.5 13.9062 2.5C15.1904 2.50145 16.4216 3.01223 17.3297 3.9203C18.2378 4.82837 18.7486 6.05955 18.75 7.34375Z"/></svg>'
+            + '<svg class="sc-action-icon" viewBox="0 0 20 20" fill="currentColor"><path d="M16.5632 15.6255C16.5633 16.036 16.4735 16.4416 16.3001 16.8137C16.1267 17.1858 15.874 17.5154 15.5597 17.7795C15.2454 18.0435 14.8771 18.2355 14.4806 18.3421C14.0842 18.4486 13.6692 18.467 13.2649 18.3961C12.8606 18.3252 12.4767 18.1667 12.1401 17.9316C11.8036 17.6965 11.5226 17.3906 11.3169 17.0354C11.1112 16.6801 10.9857 16.2842 10.9493 15.8753C10.9129 15.4664 10.9665 15.0545 11.1062 14.6685L6.96557 12.0084C6.57011 12.3963 6.06891 12.6588 5.52483 12.7629C4.98076 12.867 4.41804 12.8082 3.90729 12.5937C3.39653 12.3793 2.96048 12.0188 2.65383 11.5574C2.34718 11.0961 2.18359 10.5545 2.18359 10.0005C2.18359 9.4466 2.34718 8.90498 2.65383 8.44364C2.96048 7.98231 3.39653 7.6218 3.90729 7.40735C4.41804 7.1929 4.98076 7.13405 5.52483 7.23819C6.06891 7.34233 6.57011 7.60482 6.96557 7.99273L11.1062 5.33648C10.8691 4.68496 10.8804 3.96891 11.1378 3.32517C11.3953 2.68142 11.881 2.15512 12.502 1.84682C13.123 1.53852 13.8358 1.46985 14.5043 1.65392C15.1727 1.83799 15.7499 2.2619 16.1256 2.84465C16.5012 3.4274 16.649 4.12812 16.5406 4.81293C16.4323 5.49774 16.0754 6.11861 15.5382 6.55692C15.001 6.99522 14.3211 7.22022 13.6285 7.18893C12.9358 7.15763 12.279 6.87223 11.7835 6.38727L7.64292 9.04742C7.8667 9.66582 7.8667 10.3431 7.64292 10.9615L11.7835 13.6216C12.1789 13.2347 12.6795 12.973 13.2228 12.8692C13.7662 12.7654 14.328 12.824 14.8382 13.0379C15.3483 13.2518 15.7841 13.6114 16.0909 14.0716C16.3977 14.5319 16.562 15.0724 16.5632 15.6255Z"/></svg>'
+          + '</div>'
+        + '</div>'
+        + '<div class="sc-meta-row">'
+          + '<span class="sc-rating"><span class="sc-stars">★</span>' + s.rate + '</span>'
+          + '<span class="sc-divider">·</span>'
+          + '<span>' + s.deals + ' ' + pluralTasks(s.deals) + '</span>'
+          + '<span class="sc-divider">·</span>'
+          + '<span>' + s.year + '</span>'
+          + '<span class="sc-divider">·</span>'
+          + '<span>' + s.spec + '</span>'
+        + '</div>'
+      + '</div>'
+    + '</div>'
+
+    // BOTTOM BLOCK: value prop + skills + footer + buttons
+    + '<div class="sc-content">'
+      + '<div class="sc-group">'
+        + '<p class="sc-title">' + s.title + '</p>'
+        + '<div class="sc-skills">' + skillsHtml + '</div>'
+      + '</div>'
+      + '<div class="sc-group sc-group-footer">'
+        + '<span class="sc-uni">' + s.uni + '</span>'
+        + '<span class="sc-divider">·</span>'
+        + '<span class="sc-city"><svg width="14" height="14" viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.6a6.7 6.7 0 0 0-6.7 6.7c0 5 6.7 10.1 6.7 10.1s6.7-5.1 6.7-10.1A6.7 6.7 0 0 0 10 1.6Zm0 9.1a2.4 2.4 0 1 1 0-4.8 2.4 2.4 0 0 1 0 4.8Z"/></svg>' + s.city + '</span>'
+        + '<span class="sc-divider">·</span>'
+        + '<span class="sc-status">' + statusIcon + s.status + '</span>'
+      + '</div>'
+      + '<div class="sc-group sc-buttons">'
+        + '<button class="sc-invite-btn" type="button">Нанять</button>'
+        + '<a class="sc-profile-btn" href="student.html?id=' + s.id + '">Профиль</a>'
+      + '</div>'
+    + '</div>'
+
+  + '</article>';
+}
+
+function renderPagination(total, page) {
+  var pages = Math.ceil(total / PAGE_SIZE);
+  if (pages <= 1) { document.getElementById('pagination').innerHTML = ''; return; }
+  var btns = '';
+  for (var i = 1; i <= pages; i++) {
+    btns += '<button class="page-btn' + (i === page ? ' active' : '') + '" data-page="' + i + '">' + i + '</button>';
+  }
+  document.getElementById('pagination').innerHTML = btns;
+  document.querySelectorAll('.page-btn').forEach(function(b) {
+    b.addEventListener('click', function() {
+      currentPage = parseInt(this.dataset.page);
+      render();
+      window.scrollTo({ top: document.querySelector('.catalog-results').offsetTop - 120, behavior: 'smooth' });
+    });
+  });
+}
+
+function render() {
+  var list = filtered();
+  var total = list.length;
+  var page = list.slice((currentPage - 1) * PAGE_SIZE, currentPage * PAGE_SIZE);
+  document.getElementById('catalog-count').innerHTML = 'Найдено <strong>' + total + '</strong> ' + pluralStudents(total);
+  var grid = document.getElementById('catalog-grid');
+  if (!page.length) {
+    grid.innerHTML = '<div class="catalog-empty"><strong>Никого не найдено</strong>Попробуйте изменить фильтры или поисковый запрос</div>';
+  } else {
+    grid.innerHTML = page.map(renderCard).join('');
+  }
+  renderPagination(total, currentPage);
+}
+
+// Make whole card clickable (except inner links/buttons)
+document.addEventListener('click', function(e) {
+  var card = e.target.closest('.student-card');
+  if (!card) return;
+  if (e.target.closest('a, button, .sc-action-icon')) return;
+  var href = card.dataset.href;
+  if (href) window.location.href = href;
+});
+document.addEventListener('keydown', function(e) {
+  if (e.key !== 'Enter' && e.key !== ' ') return;
+  var card = document.activeElement && document.activeElement.classList && document.activeElement.classList.contains('student-card') ? document.activeElement : null;
+  if (!card) return;
+  e.preventDefault();
+  var href = card.dataset.href;
+  if (href) window.location.href = href;
+});
+
+// Category tabs
+document.querySelectorAll('.cat-tab').forEach(function(tab) {
+  tab.addEventListener('click', function() {
+    document.querySelectorAll('.cat-tab').forEach(function(t) { t.classList.remove('active'); });
+    this.classList.add('active');
+    activeCat = this.dataset.cat;
+    currentPage = 1;
+    render();
+  });
+});
+
+// Filters
+document.getElementById('filter-status').addEventListener('change', function() {
+  activeStatus = this.value;
+  currentPage = 1;
+  render();
+});
+document.getElementById('filter-sort').addEventListener('change', function() {
+  activeSort = this.value;
+  currentPage = 1;
+  render();
+});
+
+// Search
+document.getElementById('search-form').addEventListener('submit', function(e) {
+  e.preventDefault();
+  searchQuery = document.getElementById('search-input').value.trim().toLowerCase();
+  render();
+});
+document.getElementById('search-input').addEventListener('input', function() {
+  searchQuery = this.value.trim().toLowerCase();
+  document.getElementById('search-form').classList.toggle('has-value', !!this.value.trim());
+  currentPage = 1;
+  render();
+});
+
+render();
+</script>
+<script src="registration.js"></script>
+</body>
+</html>
